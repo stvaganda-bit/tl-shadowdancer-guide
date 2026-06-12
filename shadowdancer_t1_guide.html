@@ -109,8 +109,9 @@ tr:hover td{background:rgba(255,255,255,.04)}
 .skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:12px 0}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
 .skill-card-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.skill-icon-img{width:40px;height:40px;border-radius:6px;object-fit:contain;background:#1a2033;flex-shrink:0;border:1px solid var(--border);}
 .skill-name{font-weight:600;color:var(--purple);font-size:14px}
+.skill-icon{width:36px;height:36px;border-radius:4px;flex-shrink:0;object-fit:contain}
+.skill-icon-inline{width:18px;height:18px;border-radius:3px;vertical-align:middle;margin-right:4px;flex-shrink:0;object-fit:contain;display:inline-block}
 .skill-desc{font-size:13px;color:var(--text-muted)}
 .skill-mandatory{border-top:1px solid rgba(74,222,128,.2);margin-top:8px;padding-top:6px;font-size:12px;color:var(--green)}
 
@@ -282,15 +283,6 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   </div>
 
   <div class="sidebar-group">
-    <div class="sidebar-group-label">Введение</div>
-    <a class="sidebar-link" href="#intro">Обзор</a>
-    <a class="sidebar-link" href="#what-is-shadowdancer">Что такое ShadowDancer</a>
-    <a class="sidebar-link" href="#role-t1">Роль в T1</a>
-    <a class="sidebar-link" href="#strengths">Сильные стороны</a>
-    <a class="sidebar-link" href="#weaknesses">Слабые стороны</a>
-  </div>
-
-  <div class="sidebar-group">
     <div class="sidebar-group-label">Large Scale PvP</div>
     <a class="sidebar-link" href="#ls-role">Роль в LS</a>
     <a class="sidebar-link" href="#ls-core-build">Core Build (6 обязательных)</a>
@@ -320,28 +312,6 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
     <a class="sidebar-link" href="#stats-priority">Приоритет статов</a>
   </div>
 
-  <div class="sidebar-group">
-    <div class="sidebar-group-label">Экипировка</div>
-    <a class="sidebar-link" href="#ls-equipment">Оружие и броня</a>
-    <a class="sidebar-link" href="#arena-equipment">Аксессуары и Guardian</a>
-    <a class="sidebar-link" href="#alternatives">Альтернативы</a>
-  </div>
-
-  <div class="sidebar-group">
-    <div class="sidebar-group-label">Ошибки</div>
-    <a class="sidebar-link" href="#common-mistakes">Топ-8 ошибок</a>
-    <a class="sidebar-link" href="#how-to-fix">Как исправить</a>
-  </div>
-
-  <div class="sidebar-group">
-    <div class="sidebar-group-label">Шпаргалка</div>
-    <a class="sidebar-link" href="#cheat-sheet">Шпаргалка (2-й монитор)</a>
-  </div>
-
-  <div class="sidebar-group">
-    <div class="sidebar-group-label">Источники</div>
-    <a class="sidebar-link" href="#sources">Источники</a>
-  </div>
 </nav>
 
 <!-- MAIN CONTENT -->
@@ -363,7 +333,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="intro">
   <h2 class="section-title">Обзор</h2>
   <div class="card">
-    <p>ShadowDancer — архетип Spear + Dagger в Throne and Liberty. В T1 PvP занимает <strong>A-Tier</strong> как в Large Scale, так и в Arena (Maxroll, март 2026). Класс требует высокого skill ceiling, особенно в Arena, но при правильной игре обеспечивает одни из лучших AoE-бёрстов в Large Scale и мощные сингл-таргет ассасин-комбо в Arena.</p>
+    <p>ShadowDancer — это комбинация Копьё + Кинжал, одна из самых динамичных в T1 PvP. По данным Maxroll на март 2026, класс держит <strong>A-Tier</strong> и в Large Scale, и в Arena. Потолок скилла здесь высокий — особенно в Arena, где цена ошибки максимальна. Но если научиться правильно заходить и выходить из боя, отдача колоссальная: массовый взрыв на сгруппированных врагах в LS или молниеносное убийство с первого комбо в 1v1.</p>
     <div class="block-warning">
       <strong>Важно: ShadowDancer ≠ Darkblighter</strong>
       ShadowDancer = Spear + Dagger. Darkblighter = Wand + Dagger. Это разные классы. Не путай билды.
@@ -379,8 +349,8 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
     </table>
   </div>
   <div class="block-info">
-    <strong>S-Tier конкуренты (марте 2026)</strong>
-    Wand/Longbow · S+S/GS · S+S/Wand · Staff/Dagger · Staff/Orb — классы, которых ShadowDancer должен обходить через грамотное позиционирование и тайминги.
+    <strong>S-Tier конкуренты (март 2026)</strong>
+    Wand/Longbow · S+S/GS · S+S/Wand · Staff/Dagger · Staff/Orb — против них в лобовую сложно. Но ShadowDancer бьёт не напором, а тактикой: правильное позиционирование и точные тайминги компенсируют разрыв в тире.
   </div>
 </section>
 
@@ -388,8 +358,9 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="what-is-shadowdancer">
   <h2 class="section-title">Что такое ShadowDancer</h2>
   <div class="card">
-    <p>ShadowDancer — мобильный дайвер и бёрст-ассасин, использующий копьё для дальних AoE-атак и кинжал для ближних CC-цепочек. Отличительная черта класса — <strong>Shadow Walker</strong>: пассивное уклонение, которое активируется при каждом использовании мобильного скилла. Это означает, что класс должен находиться в постоянном движении.</p>
-    <p style="margin-top:10px">Javelin Inferno — главный козырь в Large Scale: рикошетит между сгруппированными врагами, нанося массовый урон. В Arena — скрытный ассасин с жёсткой CC-цепочкой.</p>
+    <p>ShadowDancer — это дайвер, который заходит туда, куда другие классы боятся: прямо в тыл к хилерам и рейнджерам противника. Копьё даёт дальние AoE-атаки, кинжал — ближний CC и финишеры.</p>
+    <p style="margin-top:10px">Главная механика класса — <strong><img src="assets/icons_ru/shadow-walker.png" alt="Неуловимый убийца" class="skill-icon-inline">Неуловимый убийца</strong>: каждое использование мобильного скилла даёт пассивное уклонение. Пока ты в движении — ты неуязвим. Стоишь на месте — тебя убивают. Это не просто пассивка, это вся философия класса.</p>
+    <p style="margin-top:10px">В Large Scale главный инструмент — Копьё-Инферно: рикошетит между врагами и при броске в плотный кластер может уничтожить сразу несколько человек. В Arena ShadowDancer работает как скрытный ассасин с жёсткой CC-цепочкой — один пропуск, и весь комбо рушится.</p>
   </div>
 </section>
 
@@ -401,20 +372,20 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
       <div>
         <div class="section-subtitle" style="margin-top:0">Large Scale</div>
         <ul class="styled">
-          <li><strong>Backline diver</strong> — ныряет в тыл к хилерам и рейнджам противника</li>
-          <li><strong>AoE bomb dealer</strong> — Javelin Inferno рикошетит между врагами = максимальный потенциал AoE</li>
-          <li>Lightning Infusion + Thunder Spirit одновременно перед Javelin = экспоненциальный буст</li>
-          <li>Camouflage Cloak — инструмент репозиционирования ДО атаки, не побег</li>
-          <li>Phantom Smokescreen — блокирует AoE и Chain Hook во время дайва</li>
+          <li><strong>Backline diver</strong> — пока союзники держат фронт, ты обходишь и убиваешь хилеров</li>
+          <li><strong>AoE bomb dealer</strong> — Копьё-Инферно в плотном кластере = самый высокий разовый AoE-урон в LS</li>
+          <li>Инфузия молнии + Дух грома всегда вместе перед броском — по отдельности вдвое слабее</li>
+          <li>Покров невидимости — для скрытного подхода ДО атаки, не для паники при низком HP</li>
+          <li>Фантомная завеса — твой щит во время дайва, блокирует Chain Hook и AoE</li>
         </ul>
       </div>
       <div>
         <div class="section-subtitle" style="margin-top:0">Arena</div>
         <ul class="styled">
-          <li><strong>Single-target burst assassin</strong> — заход из стелса</li>
-          <li>Vicious Fury → Shadow Strike (бинд + сайленс) — стандартный опенер</li>
-          <li>CC-цепочка: бинд → стан → прон = окно для бёрста</li>
-          <li>Один пропущенный шаг = весь комбо рушится</li>
+          <li><strong>Single-target burst assassin</strong> — убийство с первого комбо, пока цель в CC</li>
+          <li>Клинок возмездия → Удар из тени (бинд + сайленс) — всегда открывает цепочку</li>
+          <li>Каждый шаг цепи критичен: бинд → стан → прон создают окно, в которое уходит весь урон</li>
+          <li>Один пропуск — цель выходит из CC, бёрст-окно закрывается</li>
         </ul>
       </div>
     </div>
@@ -427,15 +398,15 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="sw-grid">
     <div class="sw-card strengths">
       <h3>Сильные стороны</h3>
-      <div class="sw-item">AoE burst potential — Javelin Inferno на кластере</div>
+      <div class="sw-item">AoE burst potential — Копьё-Инферно на кластере</div>
       <div class="sw-item">Мобильность — множество мобильных скиллов</div>
-      <div class="sw-item">Shadow Walker evasion — пассивное уклонение при движении</div>
+      <div class="sw-item">Неуловимый убийца evasion — пассивное уклонение при движении</div>
       <div class="sw-item">Тактическая гибкость — разные билды под ситуацию</div>
     </div>
     <div class="sw-card weaknesses">
       <h3>Слабые стороны</h3>
       <div class="sw-item">Нет маны — проблемы с сустейном в затяжных боях</div>
-      <div class="sw-item">Нет самохила (кроме Bloodleech Aura в alt-билде)</div>
+      <div class="sw-item">Нет самохила (кроме Клинок вампира в alt-билде)</div>
       <div class="sw-item">Уязвим к melee peel — танки/S+S блокируют доступ к бэклайну</div>
       <div class="sw-item">Combo-dependent в Arena — один пропуск = сброс комбо</div>
       <div class="sw-item">Требует управления амуницией — Embers для Javelin</div>
@@ -448,15 +419,15 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <h2 class="section-title">Ключевые ограничения</h2>
   <div class="block-warning">
     <strong>Ammo Management</strong>
-    Javelin Inferno требует 5 Embers (накапливаются через Explosive Fury за 30 секунд на глобальном сервере). Без 5 Embers — урон минимален. Это главное ограничение класса.
+    Копьё-Инферно без 5 Embers — это почти пустой бросок. Заряды набираются через Взрывная ярость примерно за 30 секунд на глобальном сервере. Значит, нельзя бросать Javelin в спешке: нужно ждать, считать заряды и атаковать только когда ты готов.
   </div>
   <div class="block-warning">
     <strong>Combo Dependency (Arena)</strong>
-    Любой пропуск в CC-цепочке (бинд → стан → прон) обнуляет весь бёрст-потенциал. Требует стабильного пинга и практики до автоматизма.
+    Один пропуск в цепочке (бинд → стан → прон) — и цель свободна, а весь твой бёрст ушёл в никуда. Это главная причина, почему ShadowDancer сложен в Arena. Отработай последовательность на манекене до полного автоматизма, иначе в реальном бою нервы сделают своё.
   </div>
   <div class="block-tip">
     <strong>Антидот для слабостей</strong>
-    Shadow Walker активен только при постоянном использовании мобильных скиллов. Нет движения = нет уклонения = прямой урон в лицо. CDR на мобильные скиллы — всегда приоритет.
+    Всё это лечится движением. Неуловимый убийца — твоя основная защита. Каждый мобильный скилл даёт уклонение. CDR мобилок — не просто удобство, это боевой стат уровня Hit Chance.
   </div>
 </section>
 
@@ -466,20 +437,20 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="ls-role">
   <h2 class="section-title">Роль в Large Scale</h2>
   <div class="card">
-    <p><strong>Backline diver + AoE bomb dealer.</strong> Задача — нырнуть в тыл к хилерам и рейнджам противника, взорвать Javelin Inferno в кластере, уйти живым.</p>
+    <p>Твоя роль в LS — не фронтлайн и не дальняя поддержка. Ты ныряешь за линию врага, к хилерам и рейнджерам, взрываешь Копьё-Инферно в кластере и откатываешься. Идеальный раунд: незаметно зашёл через Покров невидимости, кинул Javelin в толпу, забрал несколько убийств, вышел живым. Иногда правильное решение — умереть после удачного bombing run: главное, чтобы атака состоялась.</p>
   </div>
   <div class="block-info">
     <strong>Золотое правило Large Scale</strong>
-    Принимай расчётные смерти ради успешного bombing run. Kill streaks восстанавливают Embers для следующего Javelin.
+    Ты не танк. Агрессивный стиль дайва выгоднее осторожного: Kill streaks быстрее возвращают Embers для следующего броска. Расчётная смерть после удачного Javelin — это нормальный обмен.
   </div>
   <div class="tbl-wrap">
     <table>
       <tr><th>Механика</th><th>Описание</th><th>Применение</th></tr>
-      <tr><td>Javelin Inferno</td><td>Рикошетит между сгруппированными врагами</td><td>В кластере 4+ врагов</td></tr>
-      <tr><td>Lightning Infusion + Thunder Spirit</td><td>Оба одновременно = экспоненциальный буст</td><td>Всегда перед Javelin</td></tr>
-      <tr><td>Camouflage Cloak</td><td>Репозиционирование ДО атаки</td><td>Подход к бэклайну</td></tr>
-      <tr><td>Phantom Smokescreen</td><td>Блокирует AoE и Chain Hook</td><td>Во время дайва/выхода</td></tr>
-      <tr><td>Shadow Walker</td><td>Уклонение при каждом мобильном скилле</td><td>Постоянное движение</td></tr>
+      <tr><td>Копьё-Инферно</td><td>Рикошетит между сгруппированными врагами</td><td>В кластере 4+ врагов</td></tr>
+      <tr><td>Инфузия молнии + Дух грома</td><td>Оба одновременно = экспоненциальный буст</td><td>Всегда перед Javelin</td></tr>
+      <tr><td><img src="assets/icons_ru/camouflage-cloak.png" alt="Покров невидимости" class="skill-icon-inline">Покров невидимости</td><td>Репозиционирование ДО атаки</td><td>Подход к бэклайну</td></tr>
+      <tr><td><img src="assets/icons_ru/phantom-smokescreen.png" alt="Фантомная завеса" class="skill-icon-inline">Фантомная завеса</td><td>Блокирует AoE и Chain Hook</td><td>Во время дайва/выхода</td></tr>
+      <tr><td><img src="assets/icons_ru/shadow-walker.png" alt="Неуловимый убийца" class="skill-icon-inline">Неуловимый убийца</td><td>Уклонение при каждом мобильном скилле</td><td>Постоянное движение</td></tr>
     </table>
   </div>
 </section>
@@ -488,60 +459,60 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="ls-core-build">
   <h2 class="section-title">LS Core Build — 6 обязательных скиллов</h2>
   <div class="block-info">
-    <strong>Обязательные скиллы присутствуют во ВСЕХ вариантах LS билда</strong>
-    Оставшиеся 6 слотов — flex (зависят от выбранного варианта).
+    <strong>Эти 6 скиллов не меняются ни в одном варианте LS-билда</strong>
+    Без них механика класса не работает. Flex-слоты (остальные 6) подбираются под сервер и стиль игры.
   </div>
   <div class="skill-grid">
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_da_blinkstrike_aa.webp" class="skill-icon-img" alt="Shadow Strike">
+        <img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon">
         <span class="badge badge-cc">CC</span>
-        <span class="skill-name">Shadow Strike</span>
+        <span class="skill-name">Удар из тени</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Bind + Silence — опенер CC-цепочки. Основа всего комбо.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_stunattack.webp" class="skill-icon-img" alt="Abyssal Cleave">
+        <img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon">
         <span class="badge badge-cc">CC+AoE</span>
-        <span class="skill-name">Abyssal Cleave</span>
+        <span class="skill-name">Колышащий вой</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
-      <div class="skill-desc">AoE prone — продолжение CC-цепочки после Shadow Strike.</div>
+      <div class="skill-desc">AoE prone — продолжение CC-цепочки после Удар из тени.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_rapidattack.webp" class="skill-icon-img" alt="Cyclonic Fury">
+        <img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon">
         <span class="badge badge-dps">DPS</span>
-        <span class="skill-name">Cyclonic Fury</span>
+        <span class="skill-name">Танец кинжалов</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Основной DPS-финишер комбо.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_crossattack.webp" class="skill-icon-img" alt="Rising Slash">
+        <img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon">
         <span class="badge badge-mob">Mob+DPS</span>
-        <span class="skill-name">Rising Slash</span>
+        <span class="skill-name">Превосходство</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
-      <div class="skill-desc">Gap closer, мобильность, дополнительный урон. Активирует Shadow Walker.</div>
+      <div class="skill-desc">Gap closer, мобильность, дополнительный урон. Активирует Неуловимый убийца.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_as_sr_burning__aa.webp" class="skill-icon-img" alt="Inject Venom">
+        <img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon">
         <span class="badge badge-util">Utility</span>
-        <span class="skill-name">Inject Venom</span>
+        <span class="skill-name">Отравное жало</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Пре-бафф — усиление урона + накопление стаков яда.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_abnormaltolerance.webp" class="skill-icon-img" alt="Unyielding Sentinel">
+        <img src="assets/icons_ru/unyielding-sentinel.png" alt="Несгибаемый страж" class="skill-icon">
         <span class="badge badge-surv">Survival</span>
-        <span class="skill-name">Unyielding Sentinel</span>
+        <span class="skill-name">Несгибаемый страж</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">CC resistance во время бёрст-окна. Обязателен для выживания при дайве.</div>
@@ -549,16 +520,16 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   </div>
   <div class="section-subtitle">Пассивки Large Scale</div>
   <div class="passive-grid">
-    <span class="passive-tag key">Shadow Walker (KEY!)</span>
-    <span class="passive-tag">Imposing Form</span>
-    <span class="passive-tag">Nimble Steps</span>
-    <span class="passive-tag">Malice Surge</span>
-    <span class="passive-tag">Fatal Precision</span>
-    <span class="passive-tag">Retaliatory Strike</span>
-    <span class="passive-tag">Death Knell</span>
-    <span class="passive-tag">Assassin's Instincts</span>
-    <span class="passive-tag">Assassin's Step</span>
-    <span class="passive-tag">Wrathful Edge</span>
+    <span class="passive-tag key"><img src="assets/icons_ru/shadow-walker.png" alt="Неуловимый убийца" class="skill-icon-inline">Неуловимый убийца (KEY!)</span>
+    <span class="passive-tag"><img src="assets/icons_ru/imposing-form.png" alt="Искусство боя" class="skill-icon-inline">Искусство боя</span>
+    <span class="passive-tag"><img src="assets/icons_ru/nimble-steps.png" alt="Лёгкие шаги" class="skill-icon-inline">Лёгкие шаги</span>
+    <span class="passive-tag"><img src="assets/icons_ru/malice-surge.png" alt="Прорыв" class="skill-icon-inline">Прорыв</span>
+    <span class="passive-tag"><img src="assets/icons_ru/fatal-precision.png" alt="Голодная сталь" class="skill-icon-inline">Голодная сталь</span>
+    <span class="passive-tag"><img src="assets/icons_ru/retaliatory-strike.png" alt="Неумолимость" class="skill-icon-inline">Неумолимость</span>
+    <span class="passive-tag"><img src="assets/icons_ru/death-knell.png" alt="Жажда смерти" class="skill-icon-inline">Жажда смерти</span>
+    <span class="passive-tag"><img src="assets/icons_ru/assassins-instincts.png" alt="Инстинкты убийцы" class="skill-icon-inline">Инстинкты убийцы</span>
+    <span class="passive-tag"><img src="assets/icons_ru/assassins-step.png" alt="Поступь текучей воды" class="skill-icon-inline">Поступь текучей воды</span>
+    <span class="passive-tag"><img src="assets/icons_ru/wrathful-edge.png" alt="Клинки гнева" class="skill-icon-inline">Клинки гнева</span>
   </div>
 </section>
 
@@ -566,11 +537,11 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="ls-flex-builds">
   <h2 class="section-title">LS Flex Build — варианты</h2>
 
-  <!-- Main Build: Javelin Inferno -->
+  <!-- Main Build: Копьё-Инферно -->
   <div class="accordion">
     <div class="accordion-header open" onclick="toggleAccordion(this)">
       <div>
-        <div class="accordion-title">Main Build: Javelin Inferno Build <span style="color:var(--green);font-size:12px;margin-left:8px">★ Стандарт и самый популярный</span></div>
+        <div class="accordion-title">Main Build: Копьё-Инферно Build <span style="color:var(--green);font-size:12px;margin-left:8px">★ Стандарт и самый популярный</span></div>
         <div class="accordion-meta">Источники: Maxroll + Metabattle + StudioLoot (3/5) · Highest AoE potential</div>
       </div>
       <span class="accordion-icon">›</span>
@@ -578,16 +549,16 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
     <div class="accordion-body open">
       <div class="block-info">
         <strong>Полный список 12 скиллов</strong>
-        Gale Rush · Rising Slash · Umbral Spirit · Abyssal Cleave · Phantom Smokescreen · Cyclonic Fury · Shadow Strike · Unyielding Sentinel · Vicious Fury / Explosive Fury · Inject Venom · Javelin Surge · Camouflage Cloak
+        Гале Буря · Превосходство · Смещённый шаг · Колышащий вой · Фантомная завеса · Танец кинжалов · Удар из тени · Несгибаемый страж · Клинок возмездия / Взрывная ярость · Отравное жало · Падающая звезда · Покров невидимости
       </div>
       <div class="section-subtitle">Flex-добавки</div>
       <div class="tbl-wrap">
         <table>
           <tr><th>Скилл</th><th>Роль</th><th>Примечание</th></tr>
-          <tr><td>Javelin Surge</td><td>Накопление Embers</td><td>Основа AoE механики</td></tr>
-          <tr><td>Vicious Fury / Explosive Fury</td><td>5 Embers за 30 сек</td><td>Главный генератор зарядов</td></tr>
-          <tr><td>Camouflage Cloak</td><td>Стелс-репозиционирование</td><td>Спорный — используй до атаки</td></tr>
-          <tr><td>Phantom Smokescreen</td><td>Защита при дайве</td><td>Блокирует Chain Hook + AoE</td></tr>
+          <tr><td><img src="assets/icons_ru/javelin-surge.png" alt="Падающая звезда" class="skill-icon-inline">Падающая звезда</td><td>Накопление Embers</td><td>Основа AoE механики</td></tr>
+          <tr><td><img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon-inline">Клинок возмездия / Взрывная ярость</td><td>5 Embers за 30 сек</td><td>Главный генератор зарядов</td></tr>
+          <tr><td><img src="assets/icons_ru/camouflage-cloak.png" alt="Покров невидимости" class="skill-icon-inline">Покров невидимости</td><td>Стелс-репозиционирование</td><td>Спорный — используй до атаки</td></tr>
+          <tr><td><img src="assets/icons_ru/phantom-smokescreen.png" alt="Фантомная завеса" class="skill-icon-inline">Фантомная завеса</td><td>Защита при дайве</td><td>Блокирует Chain Hook + AoE</td></tr>
         </table>
       </div>
       <div class="sw-grid" style="margin-top:12px">
@@ -620,20 +591,20 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
       <div class="tbl-wrap">
         <table>
           <tr><th>Изменение</th><th>Скиллы</th></tr>
-          <tr><td>Убраны vs Javelin-билд</td><td>Javelin Surge · Vicious Fury/Explosive Fury · Camouflage Cloak</td></tr>
-          <tr><td>Добавлены</td><td>Culling Arc · Brutal Fury ×4 · Ascending Cleave · Bloodleech Aura</td></tr>
+          <tr><td>Убраны vs Javelin-билд</td><td><img src="assets/icons_ru/javelin-surge.png" alt="Падающая звезда" class="skill-icon-inline">Падающая звезда · <img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon-inline">Клинок возмездия/Взрывная ярость · <img src="assets/icons_ru/camouflage-cloak.png" alt="Покров невидимости" class="skill-icon-inline">Покров невидимости</td></tr>
+          <tr><td>Добавлены</td><td><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез · Неистовая ярость ×4 · Восходящий разлом · <img src="assets/icons_ru/bloodleech-aura.png" alt="Клинок вампира" class="skill-icon-inline">Клинок вампира</td></tr>
         </table>
       </div>
       <div class="block-tip">
         <strong>Когда использовать</strong>
-        Frontline-ориентированные серверы; управление амуницией затруднено; post-KR-nerf логика; нужен self-sustain (Bloodleech Aura — единственный вариант самохила).
+        Frontline-ориентированные серверы; управление амуницией затруднено; post-KR-nerf логика; нужен self-sustain (Клинок вампира — единственный вариант самохила).
       </div>
       <div class="sw-grid" style="margin-top:12px">
         <div class="sw-card strengths">
           <h3>Плюсы</h3>
           <div class="sw-item">Нет управления амуницией</div>
           <div class="sw-item">Более надёжное исполнение</div>
-          <div class="sw-item">Bloodleech Aura = единственный самохил</div>
+          <div class="sw-item">Клинок вампира = единственный самохил</div>
         </div>
         <div class="sw-card weaknesses">
           <h3>Минусы</h3>
@@ -654,22 +625,22 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="ls-skills">
   <h2 class="section-title">Пассивки LS</h2>
   <div class="card">
-    <p style="margin-bottom:12px">Shadow Walker — ключевая пассивка. Всегда берётся первой. Остальные пассивки подбираются под стиль игры.</p>
+    <p style="margin-bottom:12px">Неуловимый убийца — фундамент выживаемости. Берётся первой и без обсуждений: без неё ты умираешь при каждом дайве. Остальные пассивки усиливают урон или мобильность и подбираются под конкретный сервер и стиль игры.</p>
     <div class="passive-grid">
-      <span class="passive-tag key">Shadow Walker (KEY)</span>
-      <span class="passive-tag">Imposing Form</span>
-      <span class="passive-tag">Nimble Steps</span>
-      <span class="passive-tag">Malice Surge</span>
-      <span class="passive-tag">Fatal Precision</span>
-      <span class="passive-tag">Retaliatory Strike</span>
-      <span class="passive-tag">Death Knell</span>
-      <span class="passive-tag">Assassin's Instincts</span>
-      <span class="passive-tag">Assassin's Step</span>
-      <span class="passive-tag">Wrathful Edge</span>
+      <span class="passive-tag key"><img src="assets/icons_ru/shadow-walker.png" alt="Неуловимый убийца" class="skill-icon-inline">Неуловимый убийца (KEY)</span>
+      <span class="passive-tag"><img src="assets/icons_ru/imposing-form.png" alt="Искусство боя" class="skill-icon-inline">Искусство боя</span>
+      <span class="passive-tag"><img src="assets/icons_ru/nimble-steps.png" alt="Лёгкие шаги" class="skill-icon-inline">Лёгкие шаги</span>
+      <span class="passive-tag"><img src="assets/icons_ru/malice-surge.png" alt="Прорыв" class="skill-icon-inline">Прорыв</span>
+      <span class="passive-tag"><img src="assets/icons_ru/fatal-precision.png" alt="Голодная сталь" class="skill-icon-inline">Голодная сталь</span>
+      <span class="passive-tag"><img src="assets/icons_ru/retaliatory-strike.png" alt="Неумолимость" class="skill-icon-inline">Неумолимость</span>
+      <span class="passive-tag"><img src="assets/icons_ru/death-knell.png" alt="Жажда смерти" class="skill-icon-inline">Жажда смерти</span>
+      <span class="passive-tag"><img src="assets/icons_ru/assassins-instincts.png" alt="Инстинкты убийцы" class="skill-icon-inline">Инстинкты убийцы</span>
+      <span class="passive-tag"><img src="assets/icons_ru/assassins-step.png" alt="Поступь текучей воды" class="skill-icon-inline">Поступь текучей воды</span>
+      <span class="passive-tag"><img src="assets/icons_ru/wrathful-edge.png" alt="Клинки гнева" class="skill-icon-inline">Клинки гнева</span>
     </div>
     <div class="block-info" style="margin-top:14px">
-      <strong>Принцип по Shadow Walker</strong>
-      Uptime Shadow Walker критичен в обоих режимах. CDR на мобильные скиллы всегда приоритет над raw damage spec'ами.
+      <strong>Правило по Неуловимый убийца</strong>
+      Чем чаще нажимаешь мобильные скиллы — тем дольше активно уклонение. CDR на мобилки приоритетнее прямого повышения урона: мёртвый ассасин урон не наносит.
     </div>
   </div>
 </section>
@@ -680,17 +651,42 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="tbl-wrap">
     <table>
       <tr><th>#</th><th>Скилл</th><th>Причина</th></tr>
-      <tr><td>1</td><td><strong>Vicious Fury / Explosive Fury</strong></td><td>Высший приоритет — ядро Javelin-билда</td></tr>
-      <tr><td>2</td><td><strong>Javelin Surge</strong></td><td>Основная damage spec для LS</td></tr>
-      <tr><td>3</td><td><strong>Culling Arc</strong></td><td>Следующий приоритет</td></tr>
-      <tr><td>4</td><td><strong>Cyclonic Fury</strong></td><td>Следующий</td></tr>
-      <tr><td>5</td><td><strong>Shadow Strike CDR</strong></td><td>Поддерживает uptime Shadow Walker</td></tr>
-      <tr><td>6</td><td><strong>Gale Rush / мобильные скиллы CDR</strong></td><td>Uptime Shadow Walker</td></tr>
-      <tr><td>7</td><td><strong>Sentinel's Bastion spec</strong></td><td>Бонус Heavy Attack Chance</td></tr>
-      <tr><td>8</td><td><strong>Inject Venom</strong></td><td>До 20 стаков яда</td></tr>
-      <tr><td>9</td><td><strong>Nimble Steps</strong></td><td>CC resistance (пассивка)</td></tr>
-      <tr><td>10</td><td><strong>Assassin's Instincts</strong></td><td>Critical rate (пассивка)</td></tr>
+      <tr><td>1</td><td><strong><img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon-inline">Клинок возмездия / Взрывная ярость</strong></td><td>Высший приоритет — ядро Javelin-билда</td></tr>
+      <tr><td>2</td><td><strong><img src="assets/icons_ru/javelin-surge.png" alt="Падающая звезда" class="skill-icon-inline">Падающая звезда</strong></td><td>Основная damage spec для LS</td></tr>
+      <tr><td>3</td><td><strong><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез</strong></td><td>Следующий приоритет</td></tr>
+      <tr><td>4</td><td><strong><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</strong></td><td>Следующий</td></tr>
+      <tr><td>5</td><td><strong><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени CDR</strong></td><td>Поддерживает uptime Неуловимый убийца</td></tr>
+      <tr><td>6</td><td><strong><img src="assets/icons_ru/gale-rush.png" alt="Гале Буря" class="skill-icon-inline">Гале Буря / мобильные скиллы CDR</strong></td><td>Uptime Неуловимый убийца</td></tr>
+      <tr><td>7</td><td><strong>Спец. Бастиона стража</strong></td><td>Бонус Heavy Attack Chance</td></tr>
+      <tr><td>8</td><td><strong><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</strong></td><td>До 20 стаков яда</td></tr>
+      <tr><td>9</td><td><strong><img src="assets/icons_ru/nimble-steps.png" alt="Лёгкие шаги" class="skill-icon-inline">Лёгкие шаги</strong></td><td>CC resistance (пассивка)</td></tr>
+      <tr><td>10</td><td><strong><img src="assets/icons_ru/assassins-instincts.png" alt="Инстинкты убийцы" class="skill-icon-inline">Инстинкты убийцы</strong></td><td>Critical rate (пассивка)</td></tr>
     </table>
+  </div>
+
+  <!-- СКРИНШОТЫ СПЕЦИАЛИЗАЦИЙ -->
+  <div class="section-subtitle" style="margin-top:24px">Скриншоты специализаций</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+    <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--card)">
+      <a href="skill_screenshots/specializations/dagger_specs.png" target="_blank" title="Открыть полный размер">
+        <img src="skill_screenshots/specializations/dagger_specs.png"
+             alt="Специализации Кинжалов"
+             style="width:100%;display:block;cursor:zoom-in;border-radius:8px 8px 0 0">
+      </a>
+      <div style="padding:8px 12px;font-size:13px;font-weight:600;color:var(--text-muted);text-align:center;border-top:1px solid var(--border)">Специализации Кинжала</div>
+    </div>
+    <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--card)">
+      <a href="skill_screenshots/specializations/spear_specs.png" target="_blank" title="Открыть полный размер">
+        <img src="skill_screenshots/specializations/spear_specs.png"
+             alt="Специализации Копья"
+             style="width:100%;display:block;cursor:zoom-in;border-radius:8px 8px 0 0">
+      </a>
+      <div style="padding:8px 12px;font-size:13px;font-weight:600;color:var(--text-muted);text-align:center;border-top:1px solid var(--border)">Специализации Копья</div>
+    </div>
+  </div>
+  <div class="block-tip" style="margin-top:0">
+    <strong>Совет</strong>
+    Нажми на изображение, чтобы открыть в полном размере.
   </div>
 </section>
 
@@ -702,13 +698,13 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="rotation-block">
     <div class="rotation-title">LS AoE Bomb Rotation <span style="font-size:12px;color:var(--text-muted)">(StudioLoot + Maxroll)</span></div>
     <div class="rotation-chain">
-      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
-      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
-      <span class="skill-pill stealth">Camouflage Cloak</span><span class="arrow">→</span>
-      <span class="skill-pill buff">Explosive Fury ×n</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Javelin Inferno ×5</span><span class="arrow">→</span>
-      <span class="skill-pill">Phantom Smokescreen</span><span class="arrow">+</span>
-      <span class="skill-pill">Unyielding Sentinel</span>
+      <span class="skill-pill buff">Инфузия молнии</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Дух грома</span><span class="arrow">→</span>
+      <span class="skill-pill stealth"><img src="assets/icons_ru/camouflage-cloak.png" alt="Покров невидимости" class="skill-icon-inline">Покров невидимости</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Взрывная ярость ×n</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Копьё-Инферно ×5</span><span class="arrow">→</span>
+      <span class="skill-pill"><img src="assets/icons_ru/phantom-smokescreen.png" alt="Фантомная завеса" class="skill-icon-inline">Фантомная завеса</span><span class="arrow">+</span>
+      <span class="skill-pill"><img src="assets/icons_ru/unyielding-sentinel.png" alt="Несгибаемый страж" class="skill-icon-inline">Несгибаемый страж</span>
     </div>
     <div class="rotation-meta">
       <div class="rotation-meta-item"><label>Цель</label><span>Макс AoE бёрст на сгруппированных врагах</span></div>
@@ -722,19 +718,19 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="rotation-block">
     <div class="rotation-title">LS Full Burst Combo <span style="font-size:12px;color:var(--text-muted)">(Maxroll)</span></div>
     <div class="rotation-chain">
-      <span class="skill-pill buff">Inject Venom</span><span class="arrow">/</span>
-      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
-      <span class="skill-pill buff">Umbral Spirit</span><span class="arrow">/</span>
-      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Ankle Strike</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Explosive Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Thunderclouds Bombing</span><span class="arrow">/</span>
-      <span class="skill-pill dps">Brutal Incision</span><span class="arrow">→</span>
-      <span class="skill-pill mob">Rising Slash</span>
+      <span class="skill-pill buff"><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Инфузия молнии</span><span class="arrow">→</span>
+      <span class="skill-pill buff"><img src="assets/icons_ru/umbral-spirit.png" alt="Смещённый шаг" class="skill-icon-inline">Смещённый шаг</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Дух грома</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/ankle-strike.png" alt="Подсечка" class="skill-icon-inline">Подсечка</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Взрывная ярость</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез ×2</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Грозовая бомбардировка</span><span class="arrow">/</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/brutal-incision.png" alt="Жёсткое различение" class="skill-icon-inline">Жёсткое различение</span><span class="arrow">→</span>
+      <span class="skill-pill mob"><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</span>
     </div>
     <div class="rotation-meta">
       <div class="rotation-meta-item"><label>Цель</label><span>Полный бёрст-комбо на цель</span></div>
@@ -746,12 +742,12 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="rotation-block">
     <div class="rotation-title">LS No-Javelin Frontline <span style="font-size:12px;color:var(--text-muted)">(ArzyeLBuilds)</span></div>
     <div class="rotation-chain">
-      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Brutal Fury ×4</span><span class="arrow">→</span>
-      <span class="skill-pill mob">Rising Slash</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Thunderclouds Bombing</span>
+      <span class="skill-pill buff">Инфузия молнии</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез ×2</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Неистовая ярость ×4</span><span class="arrow">→</span>
+      <span class="skill-pill mob"><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Грозовая бомбардировка</span>
     </div>
     <div class="rotation-meta">
       <div class="rotation-meta-item"><label>Цель</label><span>Melee бёрст без Javelin</span></div>
@@ -766,15 +762,15 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="tbl-wrap">
     <table>
       <tr><th>Фаза</th><th>Действие</th></tr>
-      <tr><td><strong>До боя</strong></td><td>Стоять за своим фронтлайном; ждать готовности Lightning Infusion + Thunder Spirit; накапливать 5 Embers за линией</td></tr>
-      <tr><td><strong>Вход в бой</strong></td><td>Camouflage Cloak → стелс-подход к бэклайну; выбор цели: хилеры → рейндж DPS → CC специалисты; Javelin Inferno в центр кластера</td></tr>
-      <tr><td><strong>Во время боя</strong></td><td>Phantom Smokescreen на попытку Chain Hook или mass AoE; Shadow Walker через постоянное движение; не застревать в фронтлайне</td></tr>
-      <tr><td><strong>Выход</strong></td><td>Camouflage Cloak (если не использован на входе); Phantom Smokescreen под прямой угрозой; Rising Slash + Gale Rush как escape мобильность</td></tr>
+      <tr><td><strong>До боя</strong></td><td>Стоять за своим фронтлайном; ждать готовности Инфузия молнии + Дух грома; накапливать 5 Embers за линией</td></tr>
+      <tr><td><strong>Вход в бой</strong></td><td>Покров невидимости → стелс-подход к бэклайну; выбор цели: хилеры → рейндж DPS → CC специалисты; Копьё-Инферно в центр кластера</td></tr>
+      <tr><td><strong>Во время боя</strong></td><td>Фантомная завеса на попытку Chain Hook или mass AoE; Неуловимый убийца через постоянное движение; не застревать в фронтлайне</td></tr>
+      <tr><td><strong>Выход</strong></td><td>Покров невидимости (если не использован на входе); Фантомная завеса под прямой угрозой; Превосходство + Гале Буря как escape мобильность</td></tr>
     </table>
   </div>
   <div class="block-info">
-    <strong>Золотое правило</strong>
-    Ты — backline diver, не танк. Принимай расчётные смерти ради успешных bombing run'ов. Kill streaks восстанавливают Embers.
+    <strong>Главное правило позиционирования</strong>
+    Твоя позиция нестабильна по определению: зашёл, взорвал, вышел. Kill streaks быстрее возвращают Embers, поэтому агрессивный стиль дайва выгоднее пассивного.
   </div>
 </section>
 
@@ -797,20 +793,20 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="ls-tips">
   <h2 class="section-title">Советы Large Scale</h2>
   <div class="block-tip">
-    <strong>Тайминг Lightning Infusion + Thunder Spirit</strong>
-    Оба баффа должны быть активны одновременно перед броском Javelin. Раздельное использование даёт вдвое меньший эффект.
+    <strong>Инфузия молнии + Дух грома: только вместе</strong>
+    Суть в синергии: если активировать оба баффа одновременно прямо перед броском Javelin, урон растёт экспоненциально. Если по одному — каждый работает сам по себе и суммарный эффект значительно ниже. Порядок: ЛИ → Дух грома → Javelin.
   </div>
   <div class="block-tip">
-    <strong>Phantom Smokescreen — проактивно</strong>
-    Используй при попытке Chain Hook или во время mass AoE по твоей позиции. Не жди пока прилетит.
+    <strong><img src="assets/icons_ru/phantom-smokescreen.png" alt="Фантомная завеса" class="skill-icon-inline">Фантомная завеса — не реактивный щит</strong>
+    Не жди, пока тебя уже зацепили Chain Hook-ом или накрыли AoE. Активируй при первых признаках угрозы: видишь замах, видишь каст в свою сторону. Реактивное использование часто опаздывает на долю секунды и не спасает.
   </div>
   <div class="block-tip">
-    <strong>Shadow Walker — движение = жизнь</strong>
-    Каждый мобильный скилл активирует уклонение. Стоять = умирать. CDR на мобильные скиллы обязателен.
+    <strong><img src="assets/icons_ru/shadow-walker.png" alt="Неуловимый убийца" class="skill-icon-inline">Неуловимый убийца — думай о CDR как о защите</strong>
+    Каждый раз, когда нажимаешь мобильный скилл, активируется уклонение. Как только скиллы на КД — ты беззащитен. Именно поэтому CDR на мобилки в билде не менее важен, чем атакующие статы.
   </div>
   <div class="block-warning">
-    <strong>Не кидай Javelin в одну цель</strong>
-    Механика рикошета работает ТОЛЬКО при наличии нескольких врагов рядом. Одиночный бросок — слабый урон.
+    <strong>Копьё-Инферно раскрывается только в толпе</strong>
+    Механика рикошета требует нескольких целей рядом — иначе урон теряется. Если враги разошлись, не торопись с броском. Подожди кластер, или смени цель. Бросок в одиночку — почти зря потраченные 5 зарядов.
   </div>
 </section>
 
@@ -820,11 +816,11 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="arena-role">
   <h2 class="section-title">Роль в Arena</h2>
   <div class="card">
-    <p><strong>Single-target burst assassin.</strong> Заход из стелса, жёсткая CC-цепочка, максимальный урон в узком окне, пока цель в CC. Один пропущенный шаг = весь комбо рушится.</p>
+    <p>В Arena ShadowDancer работает как хирургический нож: один заход, одна цель, полное CC-окно и максимальный урон за считанные секунды. Задача — убить цель до того, как она успеет отреагировать. Всё строится на заходе из стелса и последующей цепочке без паузы: каждый следующий скилл должен идти сразу после предыдущего, не давая цели выйти из контроля.</p>
   </div>
   <div class="block-warning">
-    <strong>Не используй LS AoE ротацию в Arena</strong>
-    Javelin Inferno / Explosive Fury / AoE комбо не работают 1v1. В любом small-scale бою переключайся на CC chain ротацию.
+    <strong>LS-ротация в Arena не работает</strong>
+    Копьё-Инферно, Взрывная ярость и AoE-комбо созданы для групп. Против одного противника урон минимальный. Как только идёшь в Arena — переключаешься на CC chain ротацию.
   </div>
 </section>
 
@@ -834,63 +830,63 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="skill-grid">
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_da_blinkstrike_aa.webp" class="skill-icon-img" alt="Shadow Strike">
+        <img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon">
         <span class="badge badge-cc">CC</span>
-        <span class="skill-name">Shadow Strike</span>
+        <span class="skill-name">Удар из тени</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Bind + Silence — ключевой опенер. Начало всей CC-цепочки.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_rapidthrust.webp" class="skill-icon-img" alt="Vicious Fury">
+        <img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon">
         <span class="badge badge-mob">Stealth</span>
-        <span class="skill-name">Vicious Fury</span>
+        <span class="skill-name">Клинок возмездия</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Стелс-опенер — неожиданный энгейдж. Заходи из стелса всегда когда возможно.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_stunattack.webp" class="skill-icon-img" alt="Abyssal Cleave">
+        <img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon">
         <span class="badge badge-cc">CC</span>
-        <span class="skill-name">Abyssal Cleave</span>
+        <span class="skill-name">Колышащий вой</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Prone — открывает бёрст-окно. Третье звено CC-цепочки.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_rapidattack.webp" class="skill-icon-img" alt="Cyclonic Fury">
+        <img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon">
         <span class="badge badge-dps">DPS</span>
-        <span class="skill-name">Cyclonic Fury</span>
+        <span class="skill-name">Танец кинжалов</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">DPS во время CC-окна. Основной урон в бёрст-фазе.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_as_sr_burning__aa.webp" class="skill-icon-img" alt="Inject Venom">
+        <img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon">
         <span class="badge badge-util">Utility</span>
-        <span class="skill-name">Inject Venom</span>
+        <span class="skill-name">Отравное жало</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Пре-бафф + усиление урона. Использовать ДО входа в стелс.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_crossattack.webp" class="skill-icon-img" alt="Rising Slash">
+        <img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon">
         <span class="badge badge-mob">Mobility</span>
-        <span class="skill-name">Rising Slash</span>
+        <span class="skill-name">Превосходство</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
-      <div class="skill-desc">Мобильность + дополнительный урон. Shadow Walker activation.</div>
+      <div class="skill-desc">Мобильность + дополнительный урон. Неуловимый убийца activation.</div>
     </div>
     <div class="skill-card">
       <div class="skill-card-header">
-        <img src="https://tlcodex.com/icons/skill/active/s_wp_sp_thrustpull.webp" class="skill-icon-img" alt="Culling Arc">
+        <img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon">
         <span class="badge badge-dps">DPS</span>
-        <span class="skill-name">Culling Arc</span>
+        <span class="skill-name">Крестовый разрез</span>
         <span class="badge badge-mand">Mandatory</span>
       </div>
       <div class="skill-desc">Double-hit по CC целям. Критически важен в бёрст-окне.</div>
@@ -901,11 +897,11 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="tbl-wrap">
     <table>
       <tr><th>#</th><th>Специализация</th><th>Причина</th></tr>
-      <tr><td>1</td><td><strong>Shadow Strike CDR</strong></td><td>Критично для повторного энгейджа</td></tr>
-      <tr><td>2</td><td><strong>Brutal Incision Damage Increase</strong></td><td>Основной финишер — спек</td></tr>
-      <tr><td>3</td><td><strong>Mobility CDR</strong></td><td>Shadow Walker uptime</td></tr>
+      <tr><td>1</td><td><strong><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени CDR</strong></td><td>Критично для повторного энгейджа</td></tr>
+      <tr><td>2</td><td><strong><img src="assets/icons_ru/brutal-incision.png" alt="Жёсткое различение" class="skill-icon-inline">Жёсткое различение Damage Increase</strong></td><td>Основной финишер — спек</td></tr>
+      <tr><td>3</td><td><strong>Mobility CDR</strong></td><td>Неуловимый убийца uptime</td></tr>
       <tr><td>4</td><td><strong>Survivability specs</strong></td><td>Резилайенс во время бёрста</td></tr>
-      <tr><td>5</td><td>Culling Arc / Cyclonic Fury</td><td>Остаток очков</td></tr>
+      <tr><td>5</td><td>Крестовый разрез / Танец кинжалов</td><td>Остаток очков</td></tr>
     </table>
   </div>
 </section>
@@ -926,7 +922,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
     <div class="accordion-body open">
       <div class="block-info">
         <strong>Полный список 12 скиллов</strong>
-        Gale Rush · Rising Slash · Culling Arc · Abyssal Cleave · Vicious Fury · Cyclonic Fury · Camouflage Cloak · Shadow Strike · Unyielding Sentinel · Inject Venom · Cleaving Moonlight · Brutal Incision
+        Гале Буря · Превосходство · Крестовый разрез · Колышащий вой · Клинок возмездия · Танец кинжалов · Покров невидимости · Удар из тени · Несгибаемый страж · Отравное жало · Лунное марево · Жёсткое различение
       </div>
       <div class="sw-grid">
         <div class="sw-card strengths">
@@ -958,8 +954,8 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
       <div class="tbl-wrap">
         <table>
           <tr><th>Изменение</th><th>Скиллы</th></tr>
-          <tr><td>Убраны</td><td>Cleaving Moonlight · Brutal Incision</td></tr>
-          <tr><td>Добавлен</td><td>Thunderclouds Bombing</td></tr>
+          <tr><td>Убраны</td><td><img src="assets/icons_ru/cleaving-moonlight.png" alt="Лунное марево" class="skill-icon-inline">Лунное марево · <img src="assets/icons_ru/brutal-incision.png" alt="Жёсткое различение" class="skill-icon-inline">Жёсткое различение</td></tr>
+          <tr><td>Добавлен</td><td>Грозовая бомбардировка</td></tr>
         </table>
       </div>
       <div class="block-tip">
@@ -985,7 +981,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
     <div class="accordion-body">
       <div class="block-info">
         <strong>Добавления к основному билду</strong>
-        Ankle Strike · Explosive Fury · Umbral Spirit / Thunder Spirit
+        Подсечка · Взрывная ярость · Смещённый шаг / Дух грома
       </div>
       <div class="block-tip">
         <strong>Когда использовать</strong>
@@ -1015,17 +1011,17 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="rotation-block">
     <div class="rotation-title">Arena CC Chain Rotation <span style="font-size:12px;color:var(--text-muted)">(Metabattle + ArzyeLBuilds)</span></div>
     <div class="rotation-chain">
-      <span class="skill-pill">Unyielding Sentinel</span><span class="arrow">→</span>
-      <span class="skill-pill buff">Inject Venom</span><span class="arrow">→</span>
-      <span class="skill-pill stealth">Vicious Fury</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Gale Rush</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
-      <span class="skill-pill mob">Rising Slash</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Cleaving Moonlight</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Brutal Incision</span>
+      <span class="skill-pill"><img src="assets/icons_ru/unyielding-sentinel.png" alt="Несгибаемый страж" class="skill-icon-inline">Несгибаемый страж</span><span class="arrow">→</span>
+      <span class="skill-pill buff"><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</span><span class="arrow">→</span>
+      <span class="skill-pill stealth"><img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon-inline">Клинок возмездия</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/gale-rush.png" alt="Гале Буря" class="skill-icon-inline">Гале Буря</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез ×2</span><span class="arrow">→</span>
+      <span class="skill-pill mob"><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/cleaving-moonlight.png" alt="Лунное марево" class="skill-icon-inline">Лунное марево</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/brutal-incision.png" alt="Жёсткое различение" class="skill-icon-inline">Жёсткое различение</span>
     </div>
     <div class="rotation-meta">
       <div class="rotation-meta-item"><label>Цель</label><span>CC-лок одной цели, бёрст в CC-окне</span></div>
@@ -1039,14 +1035,14 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="rotation-block">
     <div class="rotation-title">Arena Shortened Combo <span style="font-size:12px;color:var(--text-muted)">(Maxroll — Beginner)</span></div>
     <div class="rotation-chain">
-      <span class="skill-pill buff">Inject Venom</span><span class="arrow">/</span>
-      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
-      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Thunderclouds Bombing</span><span class="arrow">→</span>
-      <span class="skill-pill mob">Rising Slash</span>
+      <span class="skill-pill buff"><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Инфузия молнии</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Дух грома</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Грозовая бомбардировка</span><span class="arrow">→</span>
+      <span class="skill-pill mob"><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</span>
     </div>
     <div class="rotation-meta">
       <div class="rotation-meta-item"><label>Цель</label><span>Упрощённый бёрст</span></div>
@@ -1058,19 +1054,19 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="rotation-block">
     <div class="rotation-title">Arena Full Burst Max <span style="font-size:12px;color:var(--text-muted)">(Maxroll — High-Skill)</span></div>
     <div class="rotation-chain">
-      <span class="skill-pill buff">Inject Venom</span><span class="arrow">/</span>
-      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
-      <span class="skill-pill buff">Umbral Spirit</span><span class="arrow">/</span>
-      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Ankle Strike</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Explosive Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
-      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
-      <span class="skill-pill dps">Thunderclouds Bombing</span><span class="arrow">/</span>
-      <span class="skill-pill dps">Brutal Incision</span><span class="arrow">→</span>
-      <span class="skill-pill mob">Rising Slash</span>
+      <span class="skill-pill buff"><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Инфузия молнии</span><span class="arrow">→</span>
+      <span class="skill-pill buff"><img src="assets/icons_ru/umbral-spirit.png" alt="Смещённый шаг" class="skill-icon-inline">Смещённый шаг</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Дух грома</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/ankle-strike.png" alt="Подсечка" class="skill-icon-inline">Подсечка</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Взрывная ярость</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез ×2</span><span class="arrow">→</span>
+      <span class="skill-pill cc"><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой</span><span class="arrow">→</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Грозовая бомбардировка</span><span class="arrow">/</span>
+      <span class="skill-pill dps"><img src="assets/icons_ru/brutal-incision.png" alt="Жёсткое различение" class="skill-icon-inline">Жёсткое различение</span><span class="arrow">→</span>
+      <span class="skill-pill mob"><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</span>
     </div>
     <div class="rotation-meta">
       <div class="rotation-meta-item"><label>Цель</label><span>Максимальный урон за комбо</span></div>
@@ -1081,7 +1077,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 
   <div class="block-tip">
     <strong>Позиционирование в Arena</strong>
-    Входи из стелса (Vicious Fury) всегда когда возможно. Держи дистанцию до подхода — не давай цели реагировать. После CC-цепочки — максимальное сближение, все удары в упор. Phantom Smokescreen на контр-бёрст противника.
+    Заход из стелса — не просто удобно, это фундаментальное преимущество: цель не готова к удару. До входа держи дистанцию и не показывай намерений. После того как цепочка началась — максимально сближайся, финишеры работают в упор. Фантомная завеса — когда противник пытается контратаковать в момент выхода из CC.
   </div>
 </section>
 
@@ -1102,7 +1098,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
       <tr class="matchup-row"><td>GS/Dagger (S-Tier Arena)</td><td class="matchup-unfavored">Unfavored Arena</td><td>Более стабильный single-target бёрст</td></tr>
       <tr class="matchup-row"><td>Staff/Dagger (S-Tier Arena)</td><td class="matchup-hard">Hard</td><td>Больше контроля и сустейна</td></tr>
       <tr class="matchup-row"><td>High Evasion builds</td><td class="matchup-hard">Hard</td><td>Требует Hit Chance 2400-2700</td></tr>
-      <tr class="matchup-row"><td>High Endurance / Tank</td><td class="matchup-hard">Hard</td><td>Lightning Infusion обязателен</td></tr>
+      <tr class="matchup-row"><td>High Endurance / Tank</td><td class="matchup-hard">Hard</td><td>Инфузия молнии обязателен</td></tr>
     </table>
   </div>
 </section>
@@ -1143,8 +1139,8 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="prog-step">
     <div class="prog-num">5</div>
     <div class="prog-content">
-      <div class="prog-title">CDR специализации (Shadow Walker uptime)</div>
-      <div class="prog-desc">CDR на мобильные скиллы перед raw damage spec'ами. Shadow Walker uptime = выживание.</div>
+      <div class="prog-title">CDR специализации (Неуловимый убийца uptime)</div>
+      <div class="prog-desc">CDR на мобильные скиллы перед raw damage spec'ами. Неуловимый убийца uptime = выживание.</div>
     </div>
   </div>
   <div class="prog-step">
@@ -1176,14 +1172,14 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="tbl-wrap">
     <table>
       <tr><th>#</th><th>Скилл</th></tr>
-      <tr><td>1</td><td><strong>Shadow Strike</strong> — core CC</td></tr>
-      <tr><td>2</td><td><strong>Unyielding Sentinel</strong> — CC resistance</td></tr>
-      <tr><td>3</td><td><strong>Javelin Surge / Explosive Fury</strong> — LS damage engine</td></tr>
-      <tr><td>4</td><td><strong>Cyclonic Fury</strong> — DPS</td></tr>
-      <tr><td>5</td><td><strong>Abyssal Cleave</strong> — CC chain</td></tr>
-      <tr><td>6</td><td><strong>Rising Slash</strong> — мобильность</td></tr>
-      <tr><td>7</td><td><strong>Inject Venom</strong></td></tr>
-      <tr><td>8</td><td><strong>Пассивки:</strong> Shadow Walker, Assassin's Instincts, Nimble Steps</td></tr>
+      <tr><td>1</td><td><strong><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени</strong> — core CC</td></tr>
+      <tr><td>2</td><td><strong><img src="assets/icons_ru/unyielding-sentinel.png" alt="Несгибаемый страж" class="skill-icon-inline">Несгибаемый страж</strong> — CC resistance</td></tr>
+      <tr><td>3</td><td><strong><img src="assets/icons_ru/javelin-surge.png" alt="Падающая звезда" class="skill-icon-inline">Падающая звезда / Взрывная ярость</strong> — LS damage engine</td></tr>
+      <tr><td>4</td><td><strong><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</strong> — DPS</td></tr>
+      <tr><td>5</td><td><strong><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой</strong> — CC chain</td></tr>
+      <tr><td>6</td><td><strong><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</strong> — мобильность</td></tr>
+      <tr><td>7</td><td><strong><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</strong></td></tr>
+      <tr><td>8</td><td><strong>Пассивки:</strong> Неуловимый убийца, Инстинкты убийцы, Лёгкие шаги</td></tr>
     </table>
   </div>
 </section>
@@ -1203,7 +1199,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   </div>
   <div class="block-info">
     <strong>Deluzhnoa's Hail Spear — особый эффект</strong>
-    80% шанс Collision: Push на Rising Slash. Если враг ударяется о стену → 3 секунды стана. Меняет геймплей в Arena.
+    80% шанс Collision: Push на Превосходство. Если враг ударяется о стену → 3 секунды стана. Меняет геймплей в Arena.
   </div>
 </section>
 
@@ -1248,7 +1244,7 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   </div>
   <div class="block-tip" style="margin-top:14px">
     <strong>Серверные корректировки</strong>
-    Evasion-тяжёлые серверы → Hit Chance минимум 2400-2700+. Цели с высокой Endurance → Lightning Infusion обязателен (penetration сопротивления).
+    Evasion-тяжёлые серверы → Hit Chance минимум 2400-2700+. Цели с высокой Endurance → Инфузия молнии обязателен (penetration сопротивления).
   </div>
 </section>
 
@@ -1305,15 +1301,15 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 <section id="alternatives">
   <h2 class="section-title">Альтернативные варианты</h2>
   <div class="card">
-    <p>Основная альтернатива — No-Javelin Melee Burst Build (ArzyeLBuilds). Если Javelin Inferno недоступен или управление амуницией затруднено:</p>
+    <p>Основная альтернатива — No-Javelin Melee Burst Build (ArzyeLBuilds). Если Копьё-Инферно недоступен или управление амуницией затруднено:</p>
     <ul class="styled">
-      <li>Замена: Javelin Surge → Culling Arc</li>
-      <li>Замена: Vicious Fury/Explosive Fury → Brutal Fury ×4</li>
-      <li>Замена: Camouflage Cloak → Bloodleech Aura (единственный самохил)</li>
-      <li>Добавление: Ascending Cleave</li>
+      <li>Замена: Падающая звезда → Крестовый разрез</li>
+      <li>Замена: Клинок возмездия/Взрывная ярость → Неистовая ярость ×4</li>
+      <li>Замена: Покров невидимости → Клинок вампира (единственный самохил)</li>
+      <li>Добавление: Восходящий разлом</li>
     </ul>
     <div class="block-tip">
-      <strong>Bloodleech Aura</strong>
+      <strong><img src="assets/icons_ru/bloodleech-aura.png" alt="Клинок вампира" class="skill-icon-inline">Клинок вампира</strong>
       Единственная опция самохила в классе. Доступна только в No-Javelin alt-билде. Полезна на frontline-ориентированных серверах.
     </div>
   </div>
@@ -1327,50 +1323,50 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #1</div>
-    <div class="mistake-title">Javelin Inferno без 5 Embers</div>
-    <div class="mistake-desc">Запуск без полного стека = минимальный урон. На Global — 30 секунд на накопление 5 Embers. Не торопись.</div>
+    <div class="mistake-title">Копьё-Инферно без 5 Embers</div>
+    <div class="mistake-desc">Самая частая ошибка новичков. Урон Копьё-Инферно без 5 Embers настолько низкий, что бросок теряет смысл. На глобальном сервере набор идёт около 30 секунд. Приучи себя проверять счётчик зарядов перед броском — это секунда внимания, которая сохраняет весь потенциал атаки.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #2</div>
-    <div class="mistake-title">Javelin Inferno в одну цель</div>
-    <div class="mistake-desc">Механика рикошета работает ТОЛЬКО при наличии сгруппированных врагов. Одиночный бросок = слабый урон. Позиционируйся перед броском.</div>
+    <div class="mistake-title">Копьё-Инферно в одну цель</div>
+    <div class="mistake-desc">Рикошет — суть всего скилла. Без второй цели рядом Копьё-Инферно бьёт как обычная атака. Если враги разошлись — жди, перегруппируйся, зайди с другой стороны. Торопиться с броском в пустоту нет смысла.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #3</div>
-    <div class="mistake-title">Lightning Infusion и Thunder Spirit по отдельности</div>
-    <div class="mistake-desc">Оба баффа нужны ОДНОВРЕМЕННО перед Javelin. По отдельности = половина эффекта.</div>
+    <div class="mistake-title">Инфузия молнии и Дух грома по отдельности</div>
+    <div class="mistake-desc">Инфузия молнии и Дух грома дают экспоненциальный буст именно когда активны одновременно. По отдельности каждый работает сам по себе — суммарный эффект кратно меньше. Настрой порядок каста: ЛИ → Дух грома → Javelin, и не отступай от него.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #4</div>
     <div class="mistake-title">AoE ротация в Arena</div>
-    <div class="mistake-desc">LS комбо не работает 1v1. Переключайся на CC chain для любого small-scale боя.</div>
+    <div class="mistake-desc">AoE-скиллы и Взрывная ярость создавались для групповых боёв. В дуэли урон минимальный, позиционирование ломается. Для Arena есть своя ротация — переключись на неё до входа в бой.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #5</div>
-    <div class="mistake-title">Camouflage Cloak как реактивный побег</div>
-    <div class="mistake-desc">Cloak — инструмент репозиционирования ДО атаки. Реактивное использование = потеря бёрст-окна.</div>
+    <div class="mistake-title">Покров невидимости как реактивный побег</div>
+    <div class="mistake-desc">Покров невидимости — инструмент скрытного входа, а не кнопка спасения. Когда тебя уже бьют, активация клоука ситуацию не спасает. Правильный паттерн: Cloak → скрытный подход → атака. Не наоборот.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #6</div>
     <div class="mistake-title">Пропуск шага CC-цепочки в Arena</div>
-    <div class="mistake-desc">Весь комбо рушится. Критическая потеря DPS. Тренируй до автоматизма.</div>
+    <div class="mistake-desc">Arena-ротация прощает ноль ошибок. Один пропуск в цепочке — цель выходит из CC, и всё бёрст-окно потеряно. Не надейся, что прокатит: отработай последовательность на тренировочном манекене до мышечной памяти.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #7</div>
-    <div class="mistake-title">Нет мобильности для Shadow Walker</div>
-    <div class="mistake-desc">Отсутствие нажатий мобильных скиллов = нет пассивного уклонения = урон в лицо. Shadow Walker активен только при постоянном движении.</div>
+    <div class="mistake-title">Нет мобильности для Неуловимый убийца</div>
+    <div class="mistake-desc">Если стоишь — ты беззащитен. Неуловимый убийца активен только пока двигаешься через мобильные скиллы. Следи за их КД и нажимай при первой возможности, даже не атакуя — это основной способ выживания в бою.</div>
   </div>
 
   <div class="mistake-block">
     <div class="mistake-num">Ошибка #8</div>
     <div class="mistake-title">Guardians в панике</div>
-    <div class="mistake-desc">Hartach и Kamarshea ставятся проактивно в начале боя. Реактивное использование = потеря эффекта. Hartach активируется только на убийствах — нужна активная фаза боя.</div>
+    <div class="mistake-desc">Guardian — не аварийная кнопка. Hartach активируется от убийств, поэтому включай его в начале активной фазы боя. Kamarshea тоже ставится проактивно, а не когда HP уже в красном. Включил Guardian в панике — потерял весь его эффект.</div>
   </div>
 </section>
 
@@ -1380,12 +1376,12 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
   <div class="tbl-wrap">
     <table>
       <tr><th>Ошибка</th><th>Исправление</th></tr>
-      <tr><td>Javelin без Embers</td><td>Считай стаки. 5 Embers → бросок. Без 5 — ждёшь.</td></tr>
-      <tr><td>Javelin в одного</td><td>Жди кластер 4+. Позиционируйся к группе перед броском.</td></tr>
-      <tr><td>Баффы по отдельности</td><td>Горячие клавиши рядом. Одна последовательность: LI → TS → Javelin.</td></tr>
-      <tr><td>AoE в Arena</td><td>Binds → CC chain ротация. Никаких AoE скиллов в 1v1.</td></tr>
-      <tr><td>Реактивный Cloak</td><td>Cloak = вход в бой. Включай в ротацию ДО энгейджа.</td></tr>
-      <tr><td>Пропуск CC звена</td><td>Тренируй последовательность на манекене до автоматизма.</td></tr>
+      <tr><td>Javelin без Embers</td><td>Смотри на счётчик зарядов. 5 есть — атакуешь. Нет — ждёшь.</td></tr>
+      <tr><td>Javelin в одного</td><td>Жди кластер 4+ и подходи к группе — не бросай через всё поле.</td></tr>
+      <tr><td>Баффы по отдельности</td><td>Поставь горячие клавиши рядом. Жёсткий порядок: Инфузия молнии → Дух грома → Javelin.</td></tr>
+      <tr><td>AoE в Arena</td><td>Переключись на CC chain ротацию до входа в бой. AoE-скиллы в 1v1 не применяешь.</td></tr>
+      <tr><td>Реактивный Cloak</td><td>Покров невидимости — первый шаг ротации, а не спасение. Включай ДО броска Javelin.</td></tr>
+      <tr><td>Пропуск CC звена</td><td>Нет коротких путей: только тренировка на манекене до полного автоматизма.</td></tr>
       <tr><td>Нет движения</td><td>CDR на мобильные скиллы. Всегда жми мобильность.</td></tr>
       <tr><td>Guardians реактивно</td><td>Ставь Guardian при первом контакте, не когда уже умираешь.</td></tr>
     </table>
@@ -1404,22 +1400,22 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
       <div class="cs-panel">
         <h3>Core Build LS (6 обяз.)</h3>
         <ul class="cs-skill-list">
-          <li>Shadow Strike — CC/Opener</li>
-          <li>Abyssal Cleave — CC+AoE</li>
-          <li>Cyclonic Fury — DPS Finisher</li>
-          <li>Rising Slash — Mobility+DPS</li>
-          <li>Inject Venom — Pre-buff</li>
-          <li>Unyielding Sentinel — Survival</li>
+          <li><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени — CC/Opener</li>
+          <li><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой — CC+AoE</li>
+          <li><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов — DPS Finisher</li>
+          <li><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство — Mobility+DPS</li>
+          <li><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало — Pre-buff</li>
+          <li><img src="assets/icons_ru/unyielding-sentinel.png" alt="Несгибаемый страж" class="skill-icon-inline">Несгибаемый страж — Survival</li>
         </ul>
         <h3 style="margin-top:14px">Core Build Arena (7 обяз.)</h3>
         <ul class="cs-skill-list">
-          <li>Shadow Strike — CC/Opener</li>
-          <li>Vicious Fury — Stealth Opener</li>
-          <li>Abyssal Cleave — Prone</li>
-          <li>Cyclonic Fury — DPS</li>
-          <li>Culling Arc — Double-hit CC</li>
-          <li>Rising Slash — Mobility</li>
-          <li>Inject Venom — Pre-buff</li>
+          <li><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени — CC/Opener</li>
+          <li><img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon-inline">Клинок возмездия — Stealth Opener</li>
+          <li><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой — Prone</li>
+          <li><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов — DPS</li>
+          <li><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез — Double-hit CC</li>
+          <li><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство — Mobility</li>
+          <li><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало — Pre-buff</li>
         </ul>
       </div>
 
@@ -1427,25 +1423,25 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
       <div class="cs-panel">
         <h3>LS AoE Bomb Rotation</h3>
         <div class="cs-rot" style="margin-bottom:10px">
-          <span class="cs-pill">Lightning Infusion</span><span class="cs-arr">+</span>
-          <span class="cs-pill">Thunder Spirit</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Camouflage Cloak</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Explosive Fury×n</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Javelin Inferno×5</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Инфузия молнии</span><span class="cs-arr">+</span>
+          <span class="cs-pill">Дух грома</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/camouflage-cloak.png" alt="Покров невидимости" class="skill-icon-inline">Покров невидимости</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Взрывная ярость×n</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Копьё-Инферно×5</span><span class="cs-arr">→</span>
           <span class="cs-pill">Smokescreen+Sentinel</span>
         </div>
         <h3>Arena CC Chain</h3>
         <div class="cs-rot">
           <span class="cs-pill">Sentinel</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Inject Venom</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Vicious Fury</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Shadow Strike</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Gale Rush</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Abyssal Cleave</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Cyclonic Fury</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Culling Arc×2</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Rising Slash</span><span class="cs-arr">→</span>
-          <span class="cs-pill">Brutal Incision</span>
+          <span class="cs-pill"><img src="assets/icons_ru/inject-venom.png" alt="Отравное жало" class="skill-icon-inline">Отравное жало</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/vicious-fury.png" alt="Клинок возмездия" class="skill-icon-inline">Клинок возмездия</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/shadow-strike.png" alt="Удар из тени" class="skill-icon-inline">Удар из тени</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/gale-rush.png" alt="Гале Буря" class="skill-icon-inline">Гале Буря</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/abyssal-cleave.png" alt="Колышащий вой" class="skill-icon-inline">Колышащий вой</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/cyclonic-fury.png" alt="Танец кинжалов" class="skill-icon-inline">Танец кинжалов</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/culling-arc.png" alt="Крестовый разрез" class="skill-icon-inline">Крестовый разрез×2</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/rising-slash.png" alt="Превосходство" class="skill-icon-inline">Превосходство</span><span class="cs-arr">→</span>
+          <span class="cs-pill"><img src="assets/icons_ru/brutal-incision.png" alt="Жёсткое различение" class="skill-icon-inline">Жёсткое различение</span>
         </div>
       </div>
 
@@ -1461,17 +1457,17 @@ ul.styled li strong,ol.styled li strong{color:var(--text)}
         </ol>
         <h3 style="margin-top:14px">Топ-5 Tips</h3>
         <ul class="cs-tip-list">
-          <li>LI + Thunder Spirit ОДНОВРЕМЕННО перед Javelin</li>
-          <li>5 Embers обязательно до броска Javelin</li>
-          <li>Shadow Walker = постоянное движение</li>
-          <li>Cloak = ВХОД, не побег</li>
-          <li>Guardian — проактивно в начале боя</li>
+          <li>Инфузия молнии + Дух грома вместе → Javelin</li>
+          <li>5 зарядов до броска — иначе не кидать</li>
+          <li>Неуловимый убийца = постоянно нажимай мобилки</li>
+          <li>Покров невидимости = вход в бой, не паника</li>
+          <li>Guardian активируй до атаки, не когда умираешь</li>
         </ul>
         <h3 style="margin-top:14px">Топ-5 Ошибок</h3>
         <ul class="cs-err-list">
-          <li>Javelin без 5 Embers</li>
+          <li>Javelin без 5 зарядов</li>
           <li>Javelin в одну цель</li>
-          <li>Баффы по отдельности</li>
+          <li>ЛИ и Дух грома по отдельности</li>
           <li>AoE ротация в Arena</li>
           <li>Пропуск шага CC-цепочки</li>
         </ul>

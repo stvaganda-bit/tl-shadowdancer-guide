@@ -1,0 +1,344 @@
+[
+  {
+    "english_name": "Assassin's Step",
+    "russian_name": "Поступь текучей воды",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "assassins-step.png",
+    "source_screenshot": "skill_screenshots/passives/passive_1.png"
+  },
+  {
+    "english_name": "Assassin's Instincts",
+    "russian_name": "Инстинкты убийцы",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "assassins-instincts.png",
+    "source_screenshot": "skill_screenshots/passives/passive_2.png"
+  },
+  {
+    "english_name": "Death Knell",
+    "russian_name": "Жажда смерти",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "death-knell.png",
+    "source_screenshot": "skill_screenshots/passives/passive_3.png"
+  },
+  {
+    "english_name": "Assassination Stance",
+    "russian_name": "Скользящие тени",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "assassins-step-2.png",
+    "source_screenshot": "skill_screenshots/passives/passive_4.png"
+  },
+  {
+    "english_name": "Wrathful Edge",
+    "russian_name": "Безжалостные клыки",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "wrathful-edge.png",
+    "source_screenshot": "skill_screenshots/passives/passive_5.png"
+  },
+  {
+    "english_name": "Shadow Walker",
+    "russian_name": "Неуловимый убийца",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "shadow-walker.png",
+    "source_screenshot": "skill_screenshots/passives/passive_6.png"
+  },
+  {
+    "english_name": "Malice Surge",
+    "russian_name": "Клинки гнева",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "passive",
+    "icon_file": "malice-surge.png",
+    "source_screenshot": "skill_screenshots/passives/passive_7.png"
+  },
+  {
+    "english_name": "Nimble Steps",
+    "russian_name": "Лёгкие шаги",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "nimble-steps.png",
+    "source_screenshot": "skill_screenshots/passives/passive_8.png"
+  },
+  {
+    "english_name": "Imposing Form",
+    "russian_name": "Искусство боя",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "imposing-form.png",
+    "source_screenshot": "skill_screenshots/passives/passive_9.png"
+  },
+  {
+    "english_name": "Retaliatory Strike",
+    "russian_name": "Неумолимость",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "retaliatory-strike.png",
+    "source_screenshot": "skill_screenshots/passives/passive_10.png"
+  },
+  {
+    "english_name": "Fatal Precision",
+    "russian_name": "Неизбежная гибель",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "fatal-precision.png",
+    "source_screenshot": "skill_screenshots/passives/passive_11.png"
+  },
+  {
+    "english_name": "Imposing Form (alt)",
+    "russian_name": "Голодная сталь",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "imposing-form-2.png",
+    "source_screenshot": "skill_screenshots/passives/passive_12.png"
+  },
+  {
+    "english_name": "Malice Surge (spear)",
+    "russian_name": "Прорыв",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "malice-surge-2.png",
+    "source_screenshot": "skill_screenshots/passives/passive_13.png"
+  },
+  {
+    "english_name": "Mortal Wrath",
+    "russian_name": "Горячка боя",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "passive",
+    "icon_file": "retaliatory-strike-2.png",
+    "source_screenshot": "skill_screenshots/passives/passive_14.png"
+  },
+  {
+    "english_name": "Vicious Fury",
+    "russian_name": "Клинок возмездия",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "vicious-fury.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Umbral Spirit",
+    "russian_name": "Смещённый шаг",
+    "specialized_name": "Клинок тенения",
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "umbral-spirit.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Bloodleech Aura",
+    "russian_name": "Клинок вампира",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "bloodleech-aura.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Knife Throwing",
+    "russian_name": "Метание кинжалов",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "knife-throwing.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Camouflage Cloak",
+    "russian_name": "Покров невидимости",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "camouflage-cloak.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Cleaving Moonlight",
+    "russian_name": "Лунное марево",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "cleaving-moonlight.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Shadow Strike",
+    "russian_name": "Удар из тени",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "shadow-strike.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Brutal Incision",
+    "russian_name": "Жёсткое различение",
+    "specialized_name": "Жёсткое различение",
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "brutal-incision.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Culling Arc",
+    "russian_name": "Два удара",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "culling-arc-d.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Ankle Strike",
+    "russian_name": "Подсечка",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "ankle-strike.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Phantom Smokescreen",
+    "russian_name": "Фантомная завеса",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "phantom-smokescreen.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Cyclonic Fury",
+    "russian_name": "Танец кинжалов",
+    "specialized_name": null,
+    "weapon": "dagger",
+    "type": "active",
+    "icon_file": "cyclonic-fury.png",
+    "source_screenshot": "skill_screenshots/skills/dagger_base.png"
+  },
+  {
+    "english_name": "Inject Venom",
+    "russian_name": "Отравное жало",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "inject-venom.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Abyssal Cleave",
+    "russian_name": "Колышащий вой",
+    "specialized_name": "Сотрясающий вой",
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "abyssal-cleave.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Swing",
+    "russian_name": "Грубый укол",
+    "specialized_name": "Волна молота",
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "swing.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Unyielding Sentinel",
+    "russian_name": "Вершитель",
+    "specialized_name": "Вершитель",
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "unyielding-sentinel.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Gale Rush",
+    "russian_name": "Гале Буря",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "gale-rush.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Rising Slash",
+    "russian_name": "Превосходство",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "rising-slash.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Patient Block",
+    "russian_name": "Пасиен",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "patient-block.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Death From Above",
+    "russian_name": "Расслабляющий удар",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "death-from-above.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Tempest Strike",
+    "russian_name": "Неустрашимость",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "tempest-strike.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Culling Arc",
+    "russian_name": "Крестовый разрез",
+    "specialized_name": "Крестовый разрез",
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "culling-arc.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Cataclysm",
+    "russian_name": "Нить спирали",
+    "specialized_name": "Вторая ломай",
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "cataclysm.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  },
+  {
+    "english_name": "Javelin Surge",
+    "russian_name": "Падающая звезда",
+    "specialized_name": null,
+    "weapon": "spear",
+    "type": "active",
+    "icon_file": "javelin-surge.png",
+    "source_screenshot": "skill_screenshots/skills/spear_base.png"
+  }
+]
