@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShadowDancer T1 PvP Guide — Spear + Dagger</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0f14;--card:#161b24;--sidebar:#111620;
+  --gold:#f0c060;--purple:#9b6dff;--green:#4ade80;
+  --red:#f87171;--blue:#60a5fa;--text:#e8eaf0;
+  --border:#2a3040;--text-muted:#8892a4;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;display:flex;min-height:100vh}
+
+/* SIDEBAR */
+#sidebar{
+  width:260px;min-width:260px;background:var(--sidebar);
+  border-right:1px solid var(--border);position:fixed;top:0;left:0;
+  height:100vh;overflow-y:auto;z-index:100;transition:transform .3s ease;
+}
+#sidebar::-webkit-scrollbar{width:4px}
+#sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.sidebar-header{padding:20px 16px 12px;border-bottom:1px solid var(--border)}
+.sidebar-header h1{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.05em;text-transform:uppercase}
+.sidebar-header p{font-size:11px;color:var(--text-muted);margin-top:2px}
+.sidebar-group{margin-top:4px}
+.sidebar-group-label{
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-muted);padding:10px 16px 4px;
+}
+.sidebar-link{
+  display:block;padding:6px 16px;font-size:13px;color:var(--text-muted);
+  text-decoration:none;border-left:2px solid transparent;
+  transition:all .15s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sidebar-link:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.sidebar-link.active{color:var(--gold);border-left-color:var(--gold);background:rgba(240,192,96,.07)}
+
+/* HAMBURGER */
+#hamburger{
+  display:none;position:fixed;top:12px;left:12px;z-index:200;
+  background:var(--card);border:1px solid var(--border);border-radius:6px;
+  width:36px;height:36px;cursor:pointer;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;
+}
+#hamburger span{display:block;width:18px;height:2px;background:var(--text);border-radius:1px}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99}
+
+/* MAIN */
+#main{margin-left:260px;flex:1;min-width:0}
+.content{max-width:900px;margin:0 auto;padding:40px 32px 80px}
+
+/* SECTIONS */
+section{margin-bottom:56px;scroll-margin-top:24px}
+.section-title{
+  font-size:22px;font-weight:700;color:var(--gold);
+  border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:20px;
+}
+.section-subtitle{font-size:16px;font-weight:600;color:var(--text);margin:20px 0 10px}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#161b24 0%,#1a1030 100%);
+  border:1px solid var(--border);border-radius:12px;
+  padding:32px;margin-bottom:48px;text-align:center;
+}
+.hero h1{font-size:32px;font-weight:800;color:var(--gold);margin-bottom:8px}
+.hero p{color:var(--text-muted);font-size:15px}
+.tier-badges{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.tier-badge{
+  padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700;
+  background:rgba(240,192,96,.15);color:var(--gold);border:1px solid rgba(240,192,96,.3);
+}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:16px}
+
+/* BLOCKS */
+.block-warning{border-left:3px solid var(--red);background:rgba(248,113,113,.08);border-radius:0 6px 6px 0;padding:12px 16px;margin:12px 0}
+.block-tip{border-left:3px solid var(--blue);background:rgba(96,165,250,.08);border-radius:0 6px 6px 0;padding:12px 16px;margin:12px 0}
+.block-info{border-left:3px solid var(--gold);background:rgba(240,192,96,.08);border-radius:0 6px 6px 0;padding:12px 16px;margin:12px 0}
+.block-warning strong,.block-tip strong,.block-info strong{display:block;margin-bottom:4px;font-size:13px}
+.block-warning strong{color:var(--red)}
+.block-tip strong{color:var(--blue)}
+.block-info strong{color:var(--gold)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#1e2535;color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)}
+td{padding:8px 12px;border-bottom:1px solid rgba(42,48,64,.6)}
+tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+tr:hover td{background:rgba(255,255,255,.04)}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.04em}
+.badge-cc{background:rgba(155,109,255,.2);color:var(--purple)}
+.badge-dps{background:rgba(248,113,113,.2);color:var(--red)}
+.badge-mob{background:rgba(96,165,250,.2);color:var(--blue)}
+.badge-util{background:rgba(240,192,96,.2);color:var(--gold)}
+.badge-surv{background:rgba(74,222,128,.2);color:var(--green)}
+.badge-mand{background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)}
+.badge-tier{background:rgba(240,192,96,.2);color:var(--gold);font-size:13px;padding:3px 10px}
+
+/* SKILL CARDS */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:12px 0}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.skill-card-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.skill-name{font-weight:600;color:var(--purple);font-size:14px}
+.skill-desc{font-size:13px;color:var(--text-muted)}
+.skill-mandatory{border-top:1px solid rgba(74,222,128,.2);margin-top:8px;padding-top:6px;font-size:12px;color:var(--green)}
+
+/* ROTATION */
+.rotation-block{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin:12px 0}
+.rotation-title{font-weight:700;color:var(--text);margin-bottom:12px;font-size:15px}
+.rotation-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:14px}
+.skill-pill{
+  display:inline-block;background:#1e2535;border:1px solid var(--border);
+  border-radius:20px;padding:4px 12px;font-size:13px;font-weight:600;color:var(--purple);
+  white-space:nowrap;
+}
+.skill-pill.buff{color:var(--gold);border-color:rgba(240,192,96,.3);background:rgba(240,192,96,.08)}
+.skill-pill.cc{color:var(--green);border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.08)}
+.skill-pill.dps{color:var(--red);border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)}
+.skill-pill.mob{color:var(--blue);border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)}
+.skill-pill.stealth{color:#c084fc;border-color:rgba(192,132,252,.3);background:rgba(192,132,252,.08)}
+.arrow{color:var(--text-muted);font-size:16px;font-weight:700}
+.rotation-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.rotation-meta-item{background:rgba(255,255,255,.03);border-radius:6px;padding:8px 10px}
+.rotation-meta-item label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:2px}
+.rotation-meta-item span{font-size:13px;color:var(--text)}
+.rotation-meta-item.warn span{color:var(--red)}
+
+/* ACCORDION */
+.accordion{margin:12px 0}
+.accordion-header{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:14px 18px;cursor:pointer;user-select:none;transition:background .15s;
+}
+.accordion-header:hover{background:#1c2230}
+.accordion-header.open{border-radius:8px 8px 0 0;border-bottom-color:transparent}
+.accordion-title{font-weight:600;color:var(--text);font-size:15px}
+.accordion-meta{font-size:12px;color:var(--text-muted);margin-top:2px}
+.accordion-icon{color:var(--text-muted);font-size:18px;transition:transform .2s}
+.accordion-header.open .accordion-icon{transform:rotate(90deg)}
+.accordion-body{
+  background:var(--card);border:1px solid var(--border);border-top:none;
+  border-radius:0 0 8px 8px;padding:0;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
+}
+.accordion-body.open{max-height:2000px;padding:18px}
+
+/* LISTS */
+ul.styled,ol.styled{padding-left:20px;margin:8px 0}
+ul.styled li,ol.styled li{margin-bottom:6px;color:var(--text-muted)}
+ul.styled li strong,ol.styled li strong{color:var(--text)}
+.check-list{list-style:none;padding:0}
+.check-list li{padding:5px 0;padding-left:20px;position:relative;color:var(--text-muted)}
+.check-list li::before{content:"▸";position:absolute;left:0;color:var(--gold)}
+
+/* STRENGTHS/WEAKNESSES */
+.sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.sw-card{background:var(--card);border-radius:8px;padding:16px}
+.sw-card.strengths{border-top:2px solid var(--green)}
+.sw-card.weaknesses{border-top:2px solid var(--red)}
+.sw-card h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.sw-card.strengths h3{color:var(--green)}
+.sw-card.weaknesses h3{color:var(--red)}
+.sw-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:13px;color:var(--text-muted)}
+.sw-item::before{flex-shrink:0;margin-top:3px}
+.sw-card.strengths .sw-item::before{content:"✓";color:var(--green)}
+.sw-card.weaknesses .sw-item::before{content:"✗";color:var(--red)}
+
+/* MATCHUP */
+.matchup-row td:last-child{font-weight:600}
+.matchup-favored{color:var(--green)}
+.matchup-unfavored{color:var(--red)}
+.matchup-hard{color:#fbbf24}
+
+/* MISTAKES */
+.mistake-block{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:0 8px 8px 0;padding:16px;margin:10px 0}
+.mistake-num{font-size:11px;color:var(--red);font-weight:700;text-transform:uppercase;margin-bottom:4px}
+.mistake-title{font-weight:700;color:var(--text);margin-bottom:6px}
+.mistake-desc{font-size:13px;color:var(--text-muted)}
+
+/* PROGRESSION */
+.prog-step{display:flex;gap:16px;margin-bottom:14px;align-items:flex-start}
+.prog-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(240,192,96,.15);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold)}
+.prog-content{flex:1}
+.prog-title{font-weight:600;color:var(--text);margin-bottom:2px}
+.prog-desc{font-size:13px;color:var(--text-muted)}
+
+/* CHEAT SHEET */
+#cheat-sheet{
+  background:linear-gradient(135deg,#0d0f14 0%,#131925 100%);
+  border:1px solid var(--border);border-radius:12px;
+  padding:32px;
+}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cs-panel{background:rgba(22,27,36,.8);border:1px solid var(--border);border-radius:8px;padding:16px}
+.cs-panel h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.cs-skill-list{list-style:none;padding:0}
+.cs-skill-list li{padding:3px 0;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:6px}
+.cs-skill-list li::before{content:"▸";color:var(--purple);flex-shrink:0}
+.cs-rot{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.cs-pill{display:inline-block;background:#1e2535;border:1px solid var(--border);border-radius:12px;padding:2px 8px;font-size:11px;font-weight:600;color:var(--purple)}
+.cs-arr{font-size:12px;color:var(--text-muted)}
+.cs-tip-list{list-style:none;padding:0}
+.cs-tip-list li{padding:4px 0;font-size:12px;color:var(--text-muted);padding-left:14px;position:relative}
+.cs-tip-list li::before{content:"→";position:absolute;left:0;color:var(--blue)}
+.cs-err-list{list-style:none;padding:0}
+.cs-err-list li{padding:4px 0;font-size:12px;color:var(--text-muted);padding-left:14px;position:relative}
+.cs-err-list li::before{content:"✗";position:absolute;left:0;color:var(--red)}
+.cs-target-list{list-style:none;padding:0;counter-reset:tgt}
+.cs-target-list li{padding:3px 0;font-size:13px;color:var(--text-muted);counter-increment:tgt;padding-left:20px;position:relative}
+.cs-target-list li::before{content:counter(tgt)".";position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* SOURCE */
+.source-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.source-name{font-weight:600;color:var(--text);margin-bottom:2px}
+.source-url{font-size:12px;color:var(--blue);word-break:break-all}
+.source-meta{font-size:11px;color:var(--text-muted);margin-top:4px}
+.source-rel{flex-shrink:0;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px}
+.rel-high{background:rgba(74,222,128,.15);color:var(--green)}
+.rel-med{background:rgba(240,192,96,.15);color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #hamburger{display:flex}
+  #sidebar{transform:translateX(-100%)}
+  #sidebar.open{transform:translateX(0)}
+  #overlay.open{display:block}
+  #main{margin-left:0}
+  .content{padding:60px 16px 60px}
+  .sw-grid{grid-template-columns:1fr}
+  .cs-grid{grid-template-columns:1fr}
+  .skill-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero h1{font-size:22px}
+  .rotation-chain{gap:4px}
+  .skill-pill{font-size:11px;padding:3px 8px}
+}
+
+/* PASSIVE LIST */
+.passive-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.passive-tag{background:rgba(155,109,255,.1);border:1px solid rgba(155,109,255,.25);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--purple)}
+.passive-tag.key{background:rgba(240,192,96,.1);border-color:rgba(240,192,96,.3);color:var(--gold)}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border);margin:24px 0}
+
+/* STAT PRIORITY */
+.stat-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(42,48,64,.5)}
+.stat-name{flex:1;font-weight:600;font-size:14px}
+.stat-bar-wrap{flex:2;background:#1e2535;border-radius:4px;height:6px;overflow:hidden}
+.stat-bar{height:100%;border-radius:4px}
+.stat-bar.p1{background:var(--red);width:100%}
+.stat-bar.p2{background:var(--gold);width:80%}
+.stat-bar.p3{background:var(--blue);width:60%}
+.stat-bar.p4{background:var(--purple);width:40%}
+.stat-val{font-size:12px;color:var(--text-muted);min-width:120px;text-align:right}
+</style>
+</head>
+<body>
+
+<!-- HAMBURGER -->
+<button id="hamburger" aria-label="Menu" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
+<div id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h1>ShadowDancer</h1>
+    <p>Spear + Dagger · T1 PvP Guide</p>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Введение</div>
+    <a class="sidebar-link" href="#intro">Обзор</a>
+    <a class="sidebar-link" href="#what-is-shadowdancer">Что такое ShadowDancer</a>
+    <a class="sidebar-link" href="#role-t1">Роль в T1</a>
+    <a class="sidebar-link" href="#strengths">Сильные стороны</a>
+    <a class="sidebar-link" href="#weaknesses">Слабые стороны</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Large Scale PvP</div>
+    <a class="sidebar-link" href="#ls-role">Роль в LS</a>
+    <a class="sidebar-link" href="#ls-core-build">Core Build (6 обязательных)</a>
+    <a class="sidebar-link" href="#ls-flex-builds">Flex Build варианты</a>
+    <a class="sidebar-link" href="#ls-skills">Пассивки LS</a>
+    <a class="sidebar-link" href="#ls-specializations">Специализации LS</a>
+    <a class="sidebar-link" href="#ls-rotations">Ротации LS</a>
+    <a class="sidebar-link" href="#ls-positioning">Позиционирование LS</a>
+    <a class="sidebar-link" href="#ls-target-priority">Приоритет целей LS</a>
+    <a class="sidebar-link" href="#ls-tips">Советы LS</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Arena</div>
+    <a class="sidebar-link" href="#arena-role">Роль в Arena</a>
+    <a class="sidebar-link" href="#arena-core-build">Core Build Arena</a>
+    <a class="sidebar-link" href="#arena-variations">Варианты Arena</a>
+    <a class="sidebar-link" href="#arena-rotations">Ротации Arena</a>
+    <a class="sidebar-link" href="#arena-matchups">Матчапы</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Прогрессия</div>
+    <a class="sidebar-link" href="#progression-priority">Очерёдность прокачки</a>
+    <a class="sidebar-link" href="#skill-priority">Приоритет скиллов</a>
+    <a class="sidebar-link" href="#equipment-priority">Приоритет шмота</a>
+    <a class="sidebar-link" href="#stats-priority">Приоритет статов</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Экипировка</div>
+    <a class="sidebar-link" href="#ls-equipment">Оружие и броня</a>
+    <a class="sidebar-link" href="#arena-equipment">Аксессуары и Guardian</a>
+    <a class="sidebar-link" href="#alternatives">Альтернативы</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Ошибки</div>
+    <a class="sidebar-link" href="#common-mistakes">Топ-8 ошибок</a>
+    <a class="sidebar-link" href="#how-to-fix">Как исправить</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Шпаргалка</div>
+    <a class="sidebar-link" href="#cheat-sheet">Шпаргалка (2-й монитор)</a>
+  </div>
+
+  <div class="sidebar-group">
+    <div class="sidebar-group-label">Источники</div>
+    <a class="sidebar-link" href="#sources">Источники</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main id="main">
+<div class="content">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>ShadowDancer</h1>
+  <p>Spear + Dagger · T1 PvP Guide · Throne and Liberty</p>
+  <div class="tier-badges">
+    <span class="tier-badge">A-Tier Large Scale</span>
+    <span class="tier-badge">A-Tier Arena</span>
+    <span class="tier-badge">Maxroll March 2026</span>
+  </div>
+</div>
+
+<!-- SECTION 1: INTRO -->
+<section id="intro">
+  <h2 class="section-title">Обзор</h2>
+  <div class="card">
+    <p>ShadowDancer — архетип Spear + Dagger в Throne and Liberty. В T1 PvP занимает <strong>A-Tier</strong> как в Large Scale, так и в Arena (Maxroll, март 2026). Класс требует высокого skill ceiling, особенно в Arena, но при правильной игре обеспечивает одни из лучших AoE-бёрстов в Large Scale и мощные сингл-таргет ассасин-комбо в Arena.</p>
+    <div class="block-warning">
+      <strong>Важно: ShadowDancer ≠ Darkblighter</strong>
+      ShadowDancer = Spear + Dagger. Darkblighter = Wand + Dagger. Это разные классы. Не путай билды.
+    </div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Параметр</th><th>Значение</th></tr>
+      <tr><td>Оружия</td><td>Spear (основное) + Dagger</td></tr>
+      <tr><td>Large Scale Tier</td><td><span class="badge badge-tier">A-Tier</span></td></tr>
+      <tr><td>Arena Tier</td><td><span class="badge badge-tier">A-Tier</span></td></tr>
+      <tr><td>Источник рейтинга</td><td>Maxroll, март 2026</td></tr>
+    </table>
+  </div>
+  <div class="block-info">
+    <strong>S-Tier конкуренты (марте 2026)</strong>
+    Wand/Longbow · S+S/GS · S+S/Wand · Staff/Dagger · Staff/Orb — классы, которых ShadowDancer должен обходить через грамотное позиционирование и тайминги.
+  </div>
+</section>
+
+<!-- SECTION 2: WHAT IS SHADOWDANCER -->
+<section id="what-is-shadowdancer">
+  <h2 class="section-title">Что такое ShadowDancer</h2>
+  <div class="card">
+    <p>ShadowDancer — мобильный дайвер и бёрст-ассасин, использующий копьё для дальних AoE-атак и кинжал для ближних CC-цепочек. Отличительная черта класса — <strong>Shadow Walker</strong>: пассивное уклонение, которое активируется при каждом использовании мобильного скилла. Это означает, что класс должен находиться в постоянном движении.</p>
+    <p style="margin-top:10px">Javelin Inferno — главный козырь в Large Scale: рикошетит между сгруппированными врагами, нанося массовый урон. В Arena — скрытный ассасин с жёсткой CC-цепочкой.</p>
+  </div>
+</section>
+
+<!-- SECTION 3: ROLE IN T1 -->
+<section id="role-t1">
+  <h2 class="section-title">Роль в T1</h2>
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div class="section-subtitle" style="margin-top:0">Large Scale</div>
+        <ul class="styled">
+          <li><strong>Backline diver</strong> — ныряет в тыл к хилерам и рейнджам противника</li>
+          <li><strong>AoE bomb dealer</strong> — Javelin Inferno рикошетит между врагами = максимальный потенциал AoE</li>
+          <li>Lightning Infusion + Thunder Spirit одновременно перед Javelin = экспоненциальный буст</li>
+          <li>Camouflage Cloak — инструмент репозиционирования ДО атаки, не побег</li>
+          <li>Phantom Smokescreen — блокирует AoE и Chain Hook во время дайва</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-subtitle" style="margin-top:0">Arena</div>
+        <ul class="styled">
+          <li><strong>Single-target burst assassin</strong> — заход из стелса</li>
+          <li>Vicious Fury → Shadow Strike (бинд + сайленс) — стандартный опенер</li>
+          <li>CC-цепочка: бинд → стан → прон = окно для бёрста</li>
+          <li>Один пропущенный шаг = весь комбо рушится</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: STRENGTHS -->
+<section id="strengths">
+  <h2 class="section-title">Сильные стороны</h2>
+  <div class="sw-grid">
+    <div class="sw-card strengths">
+      <h3>Сильные стороны</h3>
+      <div class="sw-item">AoE burst potential — Javelin Inferno на кластере</div>
+      <div class="sw-item">Мобильность — множество мобильных скиллов</div>
+      <div class="sw-item">Shadow Walker evasion — пассивное уклонение при движении</div>
+      <div class="sw-item">Тактическая гибкость — разные билды под ситуацию</div>
+    </div>
+    <div class="sw-card weaknesses">
+      <h3>Слабые стороны</h3>
+      <div class="sw-item">Нет маны — проблемы с сустейном в затяжных боях</div>
+      <div class="sw-item">Нет самохила (кроме Bloodleech Aura в alt-билде)</div>
+      <div class="sw-item">Уязвим к melee peel — танки/S+S блокируют доступ к бэклайну</div>
+      <div class="sw-item">Combo-dependent в Arena — один пропуск = сброс комбо</div>
+      <div class="sw-item">Требует управления амуницией — Embers для Javelin</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: WEAKNESSES (combined into strengths above, add note) -->
+<section id="weaknesses">
+  <h2 class="section-title">Ключевые ограничения</h2>
+  <div class="block-warning">
+    <strong>Ammo Management</strong>
+    Javelin Inferno требует 5 Embers (накапливаются через Explosive Fury за 30 секунд на глобальном сервере). Без 5 Embers — урон минимален. Это главное ограничение класса.
+  </div>
+  <div class="block-warning">
+    <strong>Combo Dependency (Arena)</strong>
+    Любой пропуск в CC-цепочке (бинд → стан → прон) обнуляет весь бёрст-потенциал. Требует стабильного пинга и практики до автоматизма.
+  </div>
+  <div class="block-tip">
+    <strong>Антидот для слабостей</strong>
+    Shadow Walker активен только при постоянном использовании мобильных скиллов. Нет движения = нет уклонения = прямой урон в лицо. CDR на мобильные скиллы — всегда приоритет.
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 6: LS ROLE -->
+<section id="ls-role">
+  <h2 class="section-title">Роль в Large Scale</h2>
+  <div class="card">
+    <p><strong>Backline diver + AoE bomb dealer.</strong> Задача — нырнуть в тыл к хилерам и рейнджам противника, взорвать Javelin Inferno в кластере, уйти живым.</p>
+  </div>
+  <div class="block-info">
+    <strong>Золотое правило Large Scale</strong>
+    Принимай расчётные смерти ради успешного bombing run. Kill streaks восстанавливают Embers для следующего Javelin.
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Механика</th><th>Описание</th><th>Применение</th></tr>
+      <tr><td>Javelin Inferno</td><td>Рикошетит между сгруппированными врагами</td><td>В кластере 4+ врагов</td></tr>
+      <tr><td>Lightning Infusion + Thunder Spirit</td><td>Оба одновременно = экспоненциальный буст</td><td>Всегда перед Javelin</td></tr>
+      <tr><td>Camouflage Cloak</td><td>Репозиционирование ДО атаки</td><td>Подход к бэклайну</td></tr>
+      <tr><td>Phantom Smokescreen</td><td>Блокирует AoE и Chain Hook</td><td>Во время дайва/выхода</td></tr>
+      <tr><td>Shadow Walker</td><td>Уклонение при каждом мобильном скилле</td><td>Постоянное движение</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 7: LS CORE BUILD -->
+<section id="ls-core-build">
+  <h2 class="section-title">LS Core Build — 6 обязательных скиллов</h2>
+  <div class="block-info">
+    <strong>Обязательные скиллы присутствуют во ВСЕХ вариантах LS билда</strong>
+    Оставшиеся 6 слотов — flex (зависят от выбранного варианта).
+  </div>
+  <div class="skill-grid">
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-cc">CC</span>
+        <span class="skill-name">Shadow Strike</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Bind + Silence — опенер CC-цепочки. Основа всего комбо.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-cc">CC+AoE</span>
+        <span class="skill-name">Abyssal Cleave</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">AoE prone — продолжение CC-цепочки после Shadow Strike.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-dps">DPS</span>
+        <span class="skill-name">Cyclonic Fury</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Основной DPS-финишер комбо.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-mob">Mob+DPS</span>
+        <span class="skill-name">Rising Slash</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Gap closer, мобильность, дополнительный урон. Активирует Shadow Walker.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-util">Utility</span>
+        <span class="skill-name">Inject Venom</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Пре-бафф — усиление урона + накопление стаков яда.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-surv">Survival</span>
+        <span class="skill-name">Unyielding Sentinel</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">CC resistance во время бёрст-окна. Обязателен для выживания при дайве.</div>
+    </div>
+  </div>
+  <div class="section-subtitle">Пассивки Large Scale</div>
+  <div class="passive-grid">
+    <span class="passive-tag key">Shadow Walker (KEY!)</span>
+    <span class="passive-tag">Imposing Form</span>
+    <span class="passive-tag">Nimble Steps</span>
+    <span class="passive-tag">Malice Surge</span>
+    <span class="passive-tag">Fatal Precision</span>
+    <span class="passive-tag">Retaliatory Strike</span>
+    <span class="passive-tag">Death Knell</span>
+    <span class="passive-tag">Assassin's Instincts</span>
+    <span class="passive-tag">Assassin's Step</span>
+    <span class="passive-tag">Wrathful Edge</span>
+  </div>
+</section>
+
+<!-- SECTION 8: LS FLEX BUILDS -->
+<section id="ls-flex-builds">
+  <h2 class="section-title">LS Flex Build — варианты</h2>
+
+  <!-- Main Build: Javelin Inferno -->
+  <div class="accordion">
+    <div class="accordion-header open" onclick="toggleAccordion(this)">
+      <div>
+        <div class="accordion-title">Main Build: Javelin Inferno Build <span style="color:var(--green);font-size:12px;margin-left:8px">★ Стандарт и самый популярный</span></div>
+        <div class="accordion-meta">Источники: Maxroll + Metabattle + StudioLoot (3/5) · Highest AoE potential</div>
+      </div>
+      <span class="accordion-icon">›</span>
+    </div>
+    <div class="accordion-body open">
+      <div class="block-info">
+        <strong>Полный список 12 скиллов</strong>
+        Gale Rush · Rising Slash · Umbral Spirit · Abyssal Cleave · Phantom Smokescreen · Cyclonic Fury · Shadow Strike · Unyielding Sentinel · Vicious Fury / Explosive Fury · Inject Venom · Javelin Surge · Camouflage Cloak
+      </div>
+      <div class="section-subtitle">Flex-добавки</div>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Скилл</th><th>Роль</th><th>Примечание</th></tr>
+          <tr><td>Javelin Surge</td><td>Накопление Embers</td><td>Основа AoE механики</td></tr>
+          <tr><td>Vicious Fury / Explosive Fury</td><td>5 Embers за 30 сек</td><td>Главный генератор зарядов</td></tr>
+          <tr><td>Camouflage Cloak</td><td>Стелс-репозиционирование</td><td>Спорный — используй до атаки</td></tr>
+          <tr><td>Phantom Smokescreen</td><td>Защита при дайве</td><td>Блокирует Chain Hook + AoE</td></tr>
+        </table>
+      </div>
+      <div class="sw-grid" style="margin-top:12px">
+        <div class="sw-card strengths">
+          <h3>Плюсы</h3>
+          <div class="sw-item">Макс AoE бёрст на сгруппированных врагах</div>
+          <div class="sw-item">Высший потенциал урона в LS</div>
+          <div class="sw-item">Использует главное преимущество класса</div>
+        </div>
+        <div class="sw-card weaknesses">
+          <h3>Минусы</h3>
+          <div class="sw-item">Требует управления амуницией (5 Embers)</div>
+          <div class="sw-item">Зависит от скопления врагов</div>
+          <div class="sw-item">Слабее против одиночных целей</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alt 1: No-Javelin -->
+  <div class="accordion" style="margin-top:10px">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <div class="accordion-title">Alt 1: No-Javelin Melee Burst Build <span style="color:var(--text-muted);font-size:12px;margin-left:8px">Нишевый вариант</span></div>
+        <div class="accordion-meta">Источник: ArzyeLBuilds (1 источник) · Frontline-oriented servers</div>
+      </div>
+      <span class="accordion-icon">›</span>
+    </div>
+    <div class="accordion-body">
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Изменение</th><th>Скиллы</th></tr>
+          <tr><td>Убраны vs Javelin-билд</td><td>Javelin Surge · Vicious Fury/Explosive Fury · Camouflage Cloak</td></tr>
+          <tr><td>Добавлены</td><td>Culling Arc · Brutal Fury ×4 · Ascending Cleave · Bloodleech Aura</td></tr>
+        </table>
+      </div>
+      <div class="block-tip">
+        <strong>Когда использовать</strong>
+        Frontline-ориентированные серверы; управление амуницией затруднено; post-KR-nerf логика; нужен self-sustain (Bloodleech Aura — единственный вариант самохила).
+      </div>
+      <div class="sw-grid" style="margin-top:12px">
+        <div class="sw-card strengths">
+          <h3>Плюсы</h3>
+          <div class="sw-item">Нет управления амуницией</div>
+          <div class="sw-item">Более надёжное исполнение</div>
+          <div class="sw-item">Bloodleech Aura = единственный самохил</div>
+        </div>
+        <div class="sw-card weaknesses">
+          <h3>Минусы</h3>
+          <div class="sw-item">Значительно меньший AoE потолок vs Javelin</div>
+          <div class="sw-item">Не использует ключевое преимущество класса</div>
+          <div class="sw-item">Меньше давление на дальней дистанции</div>
+        </div>
+      </div>
+      <div class="block-warning">
+        <strong>Внимание</strong>
+        Только один источник (ArzyeLBuilds). Нишевый альтернативный вариант, не стандарт.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: LS PASSIVES -->
+<section id="ls-skills">
+  <h2 class="section-title">Пассивки LS</h2>
+  <div class="card">
+    <p style="margin-bottom:12px">Shadow Walker — ключевая пассивка. Всегда берётся первой. Остальные пассивки подбираются под стиль игры.</p>
+    <div class="passive-grid">
+      <span class="passive-tag key">Shadow Walker (KEY)</span>
+      <span class="passive-tag">Imposing Form</span>
+      <span class="passive-tag">Nimble Steps</span>
+      <span class="passive-tag">Malice Surge</span>
+      <span class="passive-tag">Fatal Precision</span>
+      <span class="passive-tag">Retaliatory Strike</span>
+      <span class="passive-tag">Death Knell</span>
+      <span class="passive-tag">Assassin's Instincts</span>
+      <span class="passive-tag">Assassin's Step</span>
+      <span class="passive-tag">Wrathful Edge</span>
+    </div>
+    <div class="block-info" style="margin-top:14px">
+      <strong>Принцип по Shadow Walker</strong>
+      Uptime Shadow Walker критичен в обоих режимах. CDR на мобильные скиллы всегда приоритет над raw damage spec'ами.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: LS SPECIALIZATIONS -->
+<section id="ls-specializations">
+  <h2 class="section-title">Специализации LS (100 очков, открытие на 15 уровне)</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>#</th><th>Скилл</th><th>Причина</th></tr>
+      <tr><td>1</td><td><strong>Vicious Fury / Explosive Fury</strong></td><td>Высший приоритет — ядро Javelin-билда</td></tr>
+      <tr><td>2</td><td><strong>Javelin Surge</strong></td><td>Основная damage spec для LS</td></tr>
+      <tr><td>3</td><td><strong>Culling Arc</strong></td><td>Следующий приоритет</td></tr>
+      <tr><td>4</td><td><strong>Cyclonic Fury</strong></td><td>Следующий</td></tr>
+      <tr><td>5</td><td><strong>Shadow Strike CDR</strong></td><td>Поддерживает uptime Shadow Walker</td></tr>
+      <tr><td>6</td><td><strong>Gale Rush / мобильные скиллы CDR</strong></td><td>Uptime Shadow Walker</td></tr>
+      <tr><td>7</td><td><strong>Sentinel's Bastion spec</strong></td><td>Бонус Heavy Attack Chance</td></tr>
+      <tr><td>8</td><td><strong>Inject Venom</strong></td><td>До 20 стаков яда</td></tr>
+      <tr><td>9</td><td><strong>Nimble Steps</strong></td><td>CC resistance (пассивка)</td></tr>
+      <tr><td>10</td><td><strong>Assassin's Instincts</strong></td><td>Critical rate (пассивка)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 11: LS ROTATIONS -->
+<section id="ls-rotations">
+  <h2 class="section-title">Ротации Large Scale</h2>
+
+  <!-- Rotation 1 -->
+  <div class="rotation-block">
+    <div class="rotation-title">LS AoE Bomb Rotation <span style="font-size:12px;color:var(--text-muted)">(StudioLoot + Maxroll)</span></div>
+    <div class="rotation-chain">
+      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
+      <span class="skill-pill stealth">Camouflage Cloak</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Explosive Fury ×n</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Javelin Inferno ×5</span><span class="arrow">→</span>
+      <span class="skill-pill">Phantom Smokescreen</span><span class="arrow">+</span>
+      <span class="skill-pill">Unyielding Sentinel</span>
+    </div>
+    <div class="rotation-meta">
+      <div class="rotation-meta-item"><label>Цель</label><span>Макс AoE бёрст на сгруппированных врагах</span></div>
+      <div class="rotation-meta-item"><label>Когда</label><span>Плотный кластер 4+ врагов</span></div>
+      <div class="rotation-meta-item"><label>Результат</label><span>Массовый урон по бэклайну противника</span></div>
+      <div class="rotation-meta-item warn"><label>Ошибки</label><span>Не накопить 5 Embers; кинуть Javelin в 1 цель; баффы по отдельности</span></div>
+    </div>
+  </div>
+
+  <!-- Rotation 2 -->
+  <div class="rotation-block">
+    <div class="rotation-title">LS Full Burst Combo <span style="font-size:12px;color:var(--text-muted)">(Maxroll)</span></div>
+    <div class="rotation-chain">
+      <span class="skill-pill buff">Inject Venom</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Umbral Spirit</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Ankle Strike</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Explosive Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Thunderclouds Bombing</span><span class="arrow">/</span>
+      <span class="skill-pill dps">Brutal Incision</span><span class="arrow">→</span>
+      <span class="skill-pill mob">Rising Slash</span>
+    </div>
+    <div class="rotation-meta">
+      <div class="rotation-meta-item"><label>Цель</label><span>Полный бёрст-комбо на цель</span></div>
+      <div class="rotation-meta-item"><label>Когда</label><span>Изолированная цель в LS</span></div>
+    </div>
+  </div>
+
+  <!-- Rotation 3 -->
+  <div class="rotation-block">
+    <div class="rotation-title">LS No-Javelin Frontline <span style="font-size:12px;color:var(--text-muted)">(ArzyeLBuilds)</span></div>
+    <div class="rotation-chain">
+      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Brutal Fury ×4</span><span class="arrow">→</span>
+      <span class="skill-pill mob">Rising Slash</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Thunderclouds Bombing</span>
+    </div>
+    <div class="rotation-meta">
+      <div class="rotation-meta-item"><label>Цель</label><span>Melee бёрст без Javelin</span></div>
+      <div class="rotation-meta-item"><label>Когда</label><span>No-Javelin alt билд / frontline</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 12: LS POSITIONING -->
+<section id="ls-positioning">
+  <h2 class="section-title">Позиционирование Large Scale</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Фаза</th><th>Действие</th></tr>
+      <tr><td><strong>До боя</strong></td><td>Стоять за своим фронтлайном; ждать готовности Lightning Infusion + Thunder Spirit; накапливать 5 Embers за линией</td></tr>
+      <tr><td><strong>Вход в бой</strong></td><td>Camouflage Cloak → стелс-подход к бэклайну; выбор цели: хилеры → рейндж DPS → CC специалисты; Javelin Inferno в центр кластера</td></tr>
+      <tr><td><strong>Во время боя</strong></td><td>Phantom Smokescreen на попытку Chain Hook или mass AoE; Shadow Walker через постоянное движение; не застревать в фронтлайне</td></tr>
+      <tr><td><strong>Выход</strong></td><td>Camouflage Cloak (если не использован на входе); Phantom Smokescreen под прямой угрозой; Rising Slash + Gale Rush как escape мобильность</td></tr>
+    </table>
+  </div>
+  <div class="block-info">
+    <strong>Золотое правило</strong>
+    Ты — backline diver, не танк. Принимай расчётные смерти ради успешных bombing run'ов. Kill streaks восстанавливают Embers.
+  </div>
+</section>
+
+<!-- SECTION 13: LS TARGET PRIORITY -->
+<section id="ls-target-priority">
+  <h2 class="section-title">Приоритет целей Large Scale</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>#</th><th>Цель</th><th>Причина</th></tr>
+      <tr><td>1</td><td><strong style="color:var(--red)">Хилеры / саппорты (Wand бэклайн, Staff хилеры)</strong></td><td>Убийство устраняет выживаемость врагов — ключевой множитель победы</td></tr>
+      <tr><td>2</td><td><strong>Рейндж DPS (Longbow, Crossbow)</strong></td><td>Хрупкие; наносят высокий урон союзникам; убиваются одним Javelin комбо</td></tr>
+      <tr><td>3</td><td><strong>CC специалисты (Staff/Dagger)</strong></td><td>Высокий контроль союзников; хрупкие; приоритет когда возможно</td></tr>
+      <tr><td>4</td><td>Melee DPS</td><td>Вторичная цель при отсутствии бэклайна</td></tr>
+      <tr><td>5</td><td><span style="color:var(--text-muted)">Танки (S+S билды)</span></td><td>Последний приоритет; высокая выживаемость; убегай, не атакуй</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 14: LS TIPS -->
+<section id="ls-tips">
+  <h2 class="section-title">Советы Large Scale</h2>
+  <div class="block-tip">
+    <strong>Тайминг Lightning Infusion + Thunder Spirit</strong>
+    Оба баффа должны быть активны одновременно перед броском Javelin. Раздельное использование даёт вдвое меньший эффект.
+  </div>
+  <div class="block-tip">
+    <strong>Phantom Smokescreen — проактивно</strong>
+    Используй при попытке Chain Hook или во время mass AoE по твоей позиции. Не жди пока прилетит.
+  </div>
+  <div class="block-tip">
+    <strong>Shadow Walker — движение = жизнь</strong>
+    Каждый мобильный скилл активирует уклонение. Стоять = умирать. CDR на мобильные скиллы обязателен.
+  </div>
+  <div class="block-warning">
+    <strong>Не кидай Javelin в одну цель</strong>
+    Механика рикошета работает ТОЛЬКО при наличии нескольких врагов рядом. Одиночный бросок — слабый урон.
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 15: ARENA ROLE -->
+<section id="arena-role">
+  <h2 class="section-title">Роль в Arena</h2>
+  <div class="card">
+    <p><strong>Single-target burst assassin.</strong> Заход из стелса, жёсткая CC-цепочка, максимальный урон в узком окне, пока цель в CC. Один пропущенный шаг = весь комбо рушится.</p>
+  </div>
+  <div class="block-warning">
+    <strong>Не используй LS AoE ротацию в Arena</strong>
+    Javelin Inferno / Explosive Fury / AoE комбо не работают 1v1. В любом small-scale бою переключайся на CC chain ротацию.
+  </div>
+</section>
+
+<!-- SECTION 16: ARENA CORE BUILD -->
+<section id="arena-core-build">
+  <h2 class="section-title">Arena Core Build — 7 обязательных скиллов</h2>
+  <div class="skill-grid">
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-cc">CC</span>
+        <span class="skill-name">Shadow Strike</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Bind + Silence — ключевой опенер. Начало всей CC-цепочки.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-mob">Stealth</span>
+        <span class="skill-name">Vicious Fury</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Стелс-опенер — неожиданный энгейдж. Заходи из стелса всегда когда возможно.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-cc">CC</span>
+        <span class="skill-name">Abyssal Cleave</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Prone — открывает бёрст-окно. Третье звено CC-цепочки.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-dps">DPS</span>
+        <span class="skill-name">Cyclonic Fury</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">DPS во время CC-окна. Основной урон в бёрст-фазе.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-util">Utility</span>
+        <span class="skill-name">Inject Venom</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Пре-бафф + усиление урона. Использовать ДО входа в стелс.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-mob">Mobility</span>
+        <span class="skill-name">Rising Slash</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Мобильность + дополнительный урон. Shadow Walker activation.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <span class="badge badge-dps">DPS</span>
+        <span class="skill-name">Culling Arc</span>
+        <span class="badge badge-mand">Mandatory</span>
+      </div>
+      <div class="skill-desc">Double-hit по CC целям. Критически важен в бёрст-окне.</div>
+    </div>
+  </div>
+
+  <div class="section-subtitle">Приоритет специализаций Arena</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>#</th><th>Специализация</th><th>Причина</th></tr>
+      <tr><td>1</td><td><strong>Shadow Strike CDR</strong></td><td>Критично для повторного энгейджа</td></tr>
+      <tr><td>2</td><td><strong>Brutal Incision Damage Increase</strong></td><td>Основной финишер — спек</td></tr>
+      <tr><td>3</td><td><strong>Mobility CDR</strong></td><td>Shadow Walker uptime</td></tr>
+      <tr><td>4</td><td><strong>Survivability specs</strong></td><td>Резилайенс во время бёрста</td></tr>
+      <tr><td>5</td><td>Culling Arc / Cyclonic Fury</td><td>Остаток очков</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 17: ARENA VARIATIONS -->
+<section id="arena-variations">
+  <h2 class="section-title">Варианты Arena</h2>
+
+  <!-- Main: CC Chain -->
+  <div class="accordion">
+    <div class="accordion-header open" onclick="toggleAccordion(this)">
+      <div>
+        <div class="accordion-title">Main: CC Chain Burst Build <span style="color:var(--green);font-size:12px;margin-left:8px">★ Стандарт</span></div>
+        <div class="accordion-meta">Источники: Metabattle Small Scale + Maxroll</div>
+      </div>
+      <span class="accordion-icon">›</span>
+    </div>
+    <div class="accordion-body open">
+      <div class="block-info">
+        <strong>Полный список 12 скиллов</strong>
+        Gale Rush · Rising Slash · Culling Arc · Abyssal Cleave · Vicious Fury · Cyclonic Fury · Camouflage Cloak · Shadow Strike · Unyielding Sentinel · Inject Venom · Cleaving Moonlight · Brutal Incision
+      </div>
+      <div class="sw-grid">
+        <div class="sw-card strengths">
+          <h3>Плюсы</h3>
+          <div class="sw-item">Полный CC-лок одной цели</div>
+          <div class="sw-item">Высокий single-target бёрст на идеальном комбо</div>
+          <div class="sw-item">Преимущество внезапности из стелса</div>
+        </div>
+        <div class="sw-card weaknesses">
+          <h3>Минусы</h3>
+          <div class="sw-item">Один пропуск = комбо рушится → катастрофа DPS</div>
+          <div class="sw-item">Минимальный запас прочности</div>
+          <div class="sw-item">Требует стабильного соединения</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alt 1: Shortened -->
+  <div class="accordion" style="margin-top:10px">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <div class="accordion-title">Alt 1: Shortened Combo — Beginner / Unstable Ping</div>
+        <div class="accordion-meta">Источник: Maxroll · Для новичков и нестабильного пинга</div>
+      </div>
+      <span class="accordion-icon">›</span>
+    </div>
+    <div class="accordion-body">
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Изменение</th><th>Скиллы</th></tr>
+          <tr><td>Убраны</td><td>Cleaving Moonlight · Brutal Incision</td></tr>
+          <tr><td>Добавлен</td><td>Thunderclouds Bombing</td></tr>
+        </table>
+      </div>
+      <div class="block-tip">
+        <strong>Когда использовать</strong>
+        Нестабильный пинг; новички; мобильные цели. Меньше точек провала, более быстрое исполнение, прощает одну ошибку.
+      </div>
+      <div class="block-warning">
+        <strong>Ограничение</strong>
+        Нижний потолок бёрста — может не убить цель с хорошим гиром за одно комбо.
+      </div>
+    </div>
+  </div>
+
+  <!-- Alt 2: Full Burst Max -->
+  <div class="accordion" style="margin-top:10px">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>
+        <div class="accordion-title">Alt 2: Full Burst Max Damage — High-Skill Variant</div>
+        <div class="accordion-meta">Источник: Maxroll · Endgame high-skill вариант</div>
+      </div>
+      <span class="accordion-icon">›</span>
+    </div>
+    <div class="accordion-body">
+      <div class="block-info">
+        <strong>Добавления к основному билду</strong>
+        Ankle Strike · Explosive Fury · Umbral Spirit / Thunder Spirit
+      </div>
+      <div class="block-tip">
+        <strong>Когда использовать</strong>
+        Высокий скилл + стабильный пинг; vs хрупкие цели; цель без CC immunity.
+      </div>
+      <div class="sw-grid">
+        <div class="sw-card strengths">
+          <h3>Плюсы</h3>
+          <div class="sw-item">Максимальный бёрст урон</div>
+          <div class="sw-item">Убивает за одно комбо</div>
+        </div>
+        <div class="sw-card weaknesses">
+          <h3>Минусы</h3>
+          <div class="sw-item">Самое длинное комбо = максимум точек провала</div>
+          <div class="sw-item">Требует идеальных условий</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 18: ARENA ROTATIONS -->
+<section id="arena-rotations">
+  <h2 class="section-title">Ротации Arena</h2>
+
+  <!-- Arena Main -->
+  <div class="rotation-block">
+    <div class="rotation-title">Arena CC Chain Rotation <span style="font-size:12px;color:var(--text-muted)">(Metabattle + ArzyeLBuilds)</span></div>
+    <div class="rotation-chain">
+      <span class="skill-pill">Unyielding Sentinel</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Inject Venom</span><span class="arrow">→</span>
+      <span class="skill-pill stealth">Vicious Fury</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Gale Rush</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
+      <span class="skill-pill mob">Rising Slash</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Cleaving Moonlight</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Brutal Incision</span>
+    </div>
+    <div class="rotation-meta">
+      <div class="rotation-meta-item"><label>Цель</label><span>CC-лок одной цели, бёрст в CC-окне</span></div>
+      <div class="rotation-meta-item"><label>Когда</label><span>Каждый энгейдж в Arena</span></div>
+      <div class="rotation-meta-item"><label>Результат</label><span>Убийство или тяжёлый урон</span></div>
+      <div class="rotation-meta-item warn"><label>Ошибки</label><span>Пропуск одного звена цепи → весь комбо рушится</span></div>
+    </div>
+  </div>
+
+  <!-- Arena Shortened -->
+  <div class="rotation-block">
+    <div class="rotation-title">Arena Shortened Combo <span style="font-size:12px;color:var(--text-muted)">(Maxroll — Beginner)</span></div>
+    <div class="rotation-chain">
+      <span class="skill-pill buff">Inject Venom</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Thunderclouds Bombing</span><span class="arrow">→</span>
+      <span class="skill-pill mob">Rising Slash</span>
+    </div>
+    <div class="rotation-meta">
+      <div class="rotation-meta-item"><label>Цель</label><span>Упрощённый бёрст</span></div>
+      <div class="rotation-meta-item"><label>Когда</label><span>Нестабильный пинг / новички</span></div>
+    </div>
+  </div>
+
+  <!-- Arena Full Burst -->
+  <div class="rotation-block">
+    <div class="rotation-title">Arena Full Burst Max <span style="font-size:12px;color:var(--text-muted)">(Maxroll — High-Skill)</span></div>
+    <div class="rotation-chain">
+      <span class="skill-pill buff">Inject Venom</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Lightning Infusion</span><span class="arrow">→</span>
+      <span class="skill-pill buff">Umbral Spirit</span><span class="arrow">/</span>
+      <span class="skill-pill buff">Thunder Spirit</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Shadow Strike</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Ankle Strike</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Explosive Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Culling Arc ×2</span><span class="arrow">→</span>
+      <span class="skill-pill cc">Abyssal Cleave</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Cyclonic Fury</span><span class="arrow">→</span>
+      <span class="skill-pill dps">Thunderclouds Bombing</span><span class="arrow">/</span>
+      <span class="skill-pill dps">Brutal Incision</span><span class="arrow">→</span>
+      <span class="skill-pill mob">Rising Slash</span>
+    </div>
+    <div class="rotation-meta">
+      <div class="rotation-meta-item"><label>Цель</label><span>Максимальный урон за комбо</span></div>
+      <div class="rotation-meta-item"><label>Когда</label><span>Высокий скилл + стабильный пинг</span></div>
+      <div class="rotation-meta-item warn"><label>Риск</label><span>Длинный комбо = много точек провала</span></div>
+    </div>
+  </div>
+
+  <div class="block-tip">
+    <strong>Позиционирование в Arena</strong>
+    Входи из стелса (Vicious Fury) всегда когда возможно. Держи дистанцию до подхода — не давай цели реагировать. После CC-цепочки — максимальное сближение, все удары в упор. Phantom Smokescreen на контр-бёрст противника.
+  </div>
+</section>
+
+<!-- SECTION 19: ARENA MATCHUPS -->
+<section id="arena-matchups">
+  <h2 class="section-title">Матчапы (30% уверенность — ориентир, не абсолют)</h2>
+  <div class="block-warning">
+    <strong>Внимание</strong>
+    Матчапы — приблизительный ориентир с 30% уверенностью. Реальный результат зависит от скилла игрока, гира, пинга и ситуации.
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Противник</th><th>Исход</th><th>Причина</th></tr>
+      <tr class="matchup-row"><td>Ranged DPS (Longbow, Crossbow)</td><td class="matchup-favored">Favored</td><td>Основная цель для дайва; хрупкий бэклайн</td></tr>
+      <tr class="matchup-row"><td>Staff DPS (Staff/Wand)</td><td class="matchup-favored">Favored (изолированно)</td><td>Хрупкие; осторожно с AoE</td></tr>
+      <tr class="matchup-row"><td>S+S/Greatsword (S-Tier)</td><td class="matchup-unfavored">Unfavored</td><td>Melee peel; блокирует доступ к бэклайну</td></tr>
+      <tr class="matchup-row"><td>S+S/Wand (S-Tier)</td><td class="matchup-unfavored">Unfavored</td><td>Защита бэклайна + самохил</td></tr>
+      <tr class="matchup-row"><td>GS/Dagger (S-Tier Arena)</td><td class="matchup-unfavored">Unfavored Arena</td><td>Более стабильный single-target бёрст</td></tr>
+      <tr class="matchup-row"><td>Staff/Dagger (S-Tier Arena)</td><td class="matchup-hard">Hard</td><td>Больше контроля и сустейна</td></tr>
+      <tr class="matchup-row"><td>High Evasion builds</td><td class="matchup-hard">Hard</td><td>Требует Hit Chance 2400-2700</td></tr>
+      <tr class="matchup-row"><td>High Endurance / Tank</td><td class="matchup-hard">Hard</td><td>Lightning Infusion обязателен</td></tr>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 20: PROGRESSION PRIORITY -->
+<section id="progression-priority">
+  <h2 class="section-title">Очерёдность прокачки (8 шагов)</h2>
+  <div class="prog-step">
+    <div class="prog-num">1</div>
+    <div class="prog-content">
+      <div class="prog-title">Оружие (высший приоритет)</div>
+      <div class="prog-desc">Deluzhnoa's Hail Spear — абсолютный BiS. Queen Bellandir's Serrated Spike — ремесло как промежуточный шаг к BiS.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">2</div>
+    <div class="prog-content">
+      <div class="prog-title">50 STR брейкпоинт — обязателен до скейла DEX</div>
+      <div class="prog-desc">Даёт здоровье + Heavy Attack Chance без потери DPS. Обязательный хард кап.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">3</div>
+    <div class="prog-content">
+      <div class="prog-title">Hit Chance до 2000+ (цель 2400-2700 с баффами)</div>
+      <div class="prog-desc">Высший приоритет среди боевых статов. На серверах с Evasion-билдами — минимум 2400-2700+.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">4</div>
+    <div class="prog-content">
+      <div class="prog-title">T1 Броня: Imperator + Death</div>
+      <div class="prog-desc">Melee Heavy Attack Chance + Critical Damage. Приоритет выше аксессуаров.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">5</div>
+    <div class="prog-content">
+      <div class="prog-title">CDR специализации (Shadow Walker uptime)</div>
+      <div class="prog-desc">CDR на мобильные скиллы перед raw damage spec'ами. Shadow Walker uptime = выживание.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">6</div>
+    <div class="prog-content">
+      <div class="prog-title">DEX скейл до 70 — после шагов 1-5</div>
+      <div class="prog-desc">Только после выполнения предыдущих шагов начинай скейлить DEX.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">7</div>
+    <div class="prog-content">
+      <div class="prog-title">Guardian: Pale Nemesis Hartach — Offensive LS</div>
+      <div class="prog-desc">После основного гира. Активируется только на убийствах — использовать в активной фазе боя.</div>
+    </div>
+  </div>
+  <div class="prog-step">
+    <div class="prog-num">8</div>
+    <div class="prog-content">
+      <div class="prog-title">T2 Броня prep (Imperial Seeker / Wing Gale)</div>
+      <div class="prog-desc">Долгосрочная цель. Не приоритет T1. Critical Damage + Critical Hit Chance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 21: SKILL PRIORITY -->
+<section id="skill-priority">
+  <h2 class="section-title">Приоритет развития скиллов</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>#</th><th>Скилл</th></tr>
+      <tr><td>1</td><td><strong>Shadow Strike</strong> — core CC</td></tr>
+      <tr><td>2</td><td><strong>Unyielding Sentinel</strong> — CC resistance</td></tr>
+      <tr><td>3</td><td><strong>Javelin Surge / Explosive Fury</strong> — LS damage engine</td></tr>
+      <tr><td>4</td><td><strong>Cyclonic Fury</strong> — DPS</td></tr>
+      <tr><td>5</td><td><strong>Abyssal Cleave</strong> — CC chain</td></tr>
+      <tr><td>6</td><td><strong>Rising Slash</strong> — мобильность</td></tr>
+      <tr><td>7</td><td><strong>Inject Venom</strong></td></tr>
+      <tr><td>8</td><td><strong>Пассивки:</strong> Shadow Walker, Assassin's Instincts, Nimble Steps</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 22: EQUIPMENT PRIORITY -->
+<section id="equipment-priority">
+  <h2 class="section-title">Приоритет экипировки</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Слот</th><th>Предмет</th><th>Тип</th><th>Получение</th></tr>
+      <tr><td>Spear (старт)</td><td>Shaikal's Mindveil Harpoon</td><td>T1 Epic</td><td>Крафт</td></tr>
+      <tr><td>Spear (ранний T1)</td><td>Junobote's Smoldering Ranseur</td><td>T1 Epic</td><td>Boss drop</td></tr>
+      <tr><td>Spear (крафт BiS)</td><td>Queen Bellandir's Serrated Spike</td><td>T1 Epic</td><td>Крафт (Weapon Crafter NPC)</td></tr>
+      <tr><td>Spear (абс. BiS)</td><td><strong style="color:var(--gold)">Deluzhnoa's Hail Spear</strong></td><td>T1 Epic</td><td>Еженедельный Archboss (Sandworm Lair)</td></tr>
+      <tr><td>Dagger</td><td>Lequirus's Wicked Thorns</td><td>T1 Epic</td><td>Boss drop</td></tr>
+    </table>
+  </div>
+  <div class="block-info">
+    <strong>Deluzhnoa's Hail Spear — особый эффект</strong>
+    80% шанс Collision: Push на Rising Slash. Если враг ударяется о стену → 3 секунды стана. Меняет геймплей в Arena.
+  </div>
+</section>
+
+<!-- SECTION 23: STATS PRIORITY -->
+<section id="stats-priority">
+  <h2 class="section-title">Приоритет статов</h2>
+  <div class="section-subtitle">Атрибуты (Attribute Points)</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Этап</th><th>STR</th><th>DEX</th><th>PER</th><th>WIS</th></tr>
+      <tr><td>Ранний T1 (базовый)</td><td>17</td><td>20</td><td>10</td><td>2</td></tr>
+      <tr><td>T1 Epic цель</td><td>50</td><td>—</td><td>60</td><td>—</td></tr>
+      <tr><td>Endgame T1 (Maxroll)</td><td>50</td><td>70</td><td>50</td><td>мин</td></tr>
+    </table>
+  </div>
+  <div class="block-info">
+    <strong>50 STR — обязательный хард кап</strong>
+    Даёт здоровье + Heavy Attack Chance без потери DPS. Выполни до скейла DEX.
+  </div>
+  <div class="section-subtitle">Боевые статы</div>
+  <div style="margin-top:8px">
+    <div class="stat-row">
+      <div class="stat-name">Melee Hit Chance <span style="font-size:12px;color:var(--red)">★ Высший приоритет</span></div>
+      <div class="stat-bar-wrap"><div class="stat-bar p1"></div></div>
+      <div class="stat-val">мин 2000 → цель 2400-2700</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-name">Melee Critical Hit</div>
+      <div class="stat-bar-wrap"><div class="stat-bar p2"></div></div>
+      <div class="stat-val">2500+ → max</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-name">Ranged/Magic Evasion</div>
+      <div class="stat-bar-wrap"><div class="stat-bar p3"></div></div>
+      <div class="stat-val">1800 → 2000</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-name">Heavy Attack Chance</div>
+      <div class="stat-bar-wrap"><div class="stat-bar p4"></div></div>
+      <div class="stat-val">900+</div>
+    </div>
+  </div>
+  <div class="block-tip" style="margin-top:14px">
+    <strong>Серверные корректировки</strong>
+    Evasion-тяжёлые серверы → Hit Chance минимум 2400-2700+. Цели с высокой Endurance → Lightning Infusion обязателен (penetration сопротивления).
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 24: LS EQUIPMENT -->
+<section id="ls-equipment">
+  <h2 class="section-title">Оружие и броня</h2>
+  <div class="section-subtitle">T1 Броня</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Этап</th><th>Сет</th><th>Бонусы</th></tr>
+      <tr><td>T1</td><td><strong>Imperator + Death</strong></td><td>Melee Heavy Attack Chance + Critical Damage</td></tr>
+      <tr><td>T2 prep</td><td>Imperial Seeker + Wing Gale</td><td>Critical Damage + Critical Hit Chance</td></tr>
+    </table>
+  </div>
+  <div class="block-info">
+    <strong>Queen Bellandir's Serrated Spike</strong>
+    Наиболее доступный BiS-adjacent (крафт); даёт Perception + Fortitude + CDR. Используй как stepping stone до Deluzhnoa's Hail Spear.
+  </div>
+</section>
+
+<!-- SECTION 25: ARENA EQUIPMENT / ACCESSORIES -->
+<section id="arena-equipment">
+  <h2 class="section-title">Аксессуары и Guardian</h2>
+  <div class="section-subtitle">T3 Аксессуары (цели Metabattle)</div>
+  <div class="passive-grid">
+    <span class="passive-tag">Earrings of Forlorn Elegance</span>
+    <span class="passive-tag">Noble Birthright Brooch</span>
+    <span class="passive-tag">Infernal Demonpact Cuffs</span>
+    <span class="passive-tag">Solitaire of Purity</span>
+    <span class="passive-tag">Runed Band of the Black Anvil</span>
+    <span class="passive-tag">Elusive Nymph Coil</span>
+  </div>
+  <div class="block-tip">
+    <strong>Серверные варианты аксессуаров</strong>
+    Evasion-тяжёлые серверы: фокус на Hit Chance в аксессуарах. Tank/S+S-тяжёлые серверы: Shield Block Penetration в аксессуарах и рунах.
+  </div>
+  <div class="section-subtitle">Guardians</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Guardian</th><th>Тип</th><th>Эффект</th><th>Когда</th></tr>
+      <tr><td><strong>Pale Nemesis Hartach</strong></td><td>Offensive</td><td>Убийства → репозиционирование врагов</td><td>Large Scale, offensive стиль</td></tr>
+      <tr><td><strong>Lady Knight Kamarshea</strong></td><td>Defensive</td><td>Щит + CDR при тяжёлом уроне</td><td>Defensive / Arena</td></tr>
+    </table>
+  </div>
+  <div class="block-warning">
+    <strong>Guardians — проактивно, не в панике</strong>
+    Hartach активируется только на убийствах — используй в активной фазе боя. Kamarshea и Hartach ставятся ПРОАКТИВНО в начале боя. Реактивное использование = потеря эффекта.
+  </div>
+</section>
+
+<!-- SECTION 26: ALTERNATIVES -->
+<section id="alternatives">
+  <h2 class="section-title">Альтернативные варианты</h2>
+  <div class="card">
+    <p>Основная альтернатива — No-Javelin Melee Burst Build (ArzyeLBuilds). Если Javelin Inferno недоступен или управление амуницией затруднено:</p>
+    <ul class="styled">
+      <li>Замена: Javelin Surge → Culling Arc</li>
+      <li>Замена: Vicious Fury/Explosive Fury → Brutal Fury ×4</li>
+      <li>Замена: Camouflage Cloak → Bloodleech Aura (единственный самохил)</li>
+      <li>Добавление: Ascending Cleave</li>
+    </ul>
+    <div class="block-tip">
+      <strong>Bloodleech Aura</strong>
+      Единственная опция самохила в классе. Доступна только в No-Javelin alt-билде. Полезна на frontline-ориентированных серверах.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 27: COMMON MISTAKES -->
+<section id="common-mistakes">
+  <h2 class="section-title">Топ-8 распространённых ошибок</h2>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #1</div>
+    <div class="mistake-title">Javelin Inferno без 5 Embers</div>
+    <div class="mistake-desc">Запуск без полного стека = минимальный урон. На Global — 30 секунд на накопление 5 Embers. Не торопись.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #2</div>
+    <div class="mistake-title">Javelin Inferno в одну цель</div>
+    <div class="mistake-desc">Механика рикошета работает ТОЛЬКО при наличии сгруппированных врагов. Одиночный бросок = слабый урон. Позиционируйся перед броском.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #3</div>
+    <div class="mistake-title">Lightning Infusion и Thunder Spirit по отдельности</div>
+    <div class="mistake-desc">Оба баффа нужны ОДНОВРЕМЕННО перед Javelin. По отдельности = половина эффекта.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #4</div>
+    <div class="mistake-title">AoE ротация в Arena</div>
+    <div class="mistake-desc">LS комбо не работает 1v1. Переключайся на CC chain для любого small-scale боя.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #5</div>
+    <div class="mistake-title">Camouflage Cloak как реактивный побег</div>
+    <div class="mistake-desc">Cloak — инструмент репозиционирования ДО атаки. Реактивное использование = потеря бёрст-окна.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #6</div>
+    <div class="mistake-title">Пропуск шага CC-цепочки в Arena</div>
+    <div class="mistake-desc">Весь комбо рушится. Критическая потеря DPS. Тренируй до автоматизма.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #7</div>
+    <div class="mistake-title">Нет мобильности для Shadow Walker</div>
+    <div class="mistake-desc">Отсутствие нажатий мобильных скиллов = нет пассивного уклонения = урон в лицо. Shadow Walker активен только при постоянном движении.</div>
+  </div>
+
+  <div class="mistake-block">
+    <div class="mistake-num">Ошибка #8</div>
+    <div class="mistake-title">Guardians в панике</div>
+    <div class="mistake-desc">Hartach и Kamarshea ставятся проактивно в начале боя. Реактивное использование = потеря эффекта. Hartach активируется только на убийствах — нужна активная фаза боя.</div>
+  </div>
+</section>
+
+<!-- SECTION 28: HOW TO FIX -->
+<section id="how-to-fix">
+  <h2 class="section-title">Как исправить ошибки</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Ошибка</th><th>Исправление</th></tr>
+      <tr><td>Javelin без Embers</td><td>Считай стаки. 5 Embers → бросок. Без 5 — ждёшь.</td></tr>
+      <tr><td>Javelin в одного</td><td>Жди кластер 4+. Позиционируйся к группе перед броском.</td></tr>
+      <tr><td>Баффы по отдельности</td><td>Горячие клавиши рядом. Одна последовательность: LI → TS → Javelin.</td></tr>
+      <tr><td>AoE в Arena</td><td>Binds → CC chain ротация. Никаких AoE скиллов в 1v1.</td></tr>
+      <tr><td>Реактивный Cloak</td><td>Cloak = вход в бой. Включай в ротацию ДО энгейджа.</td></tr>
+      <tr><td>Пропуск CC звена</td><td>Тренируй последовательность на манекене до автоматизма.</td></tr>
+      <tr><td>Нет движения</td><td>CDR на мобильные скиллы. Всегда жми мобильность.</td></tr>
+      <tr><td>Guardians реактивно</td><td>Ставь Guardian при первом контакте, не когда уже умираешь.</td></tr>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 29: CHEAT SHEET -->
+<section id="cheat-sheet">
+  <h2 class="section-title">Шпаргалка — 2-й монитор</h2>
+  <div style="background:linear-gradient(135deg,#0d0f14 0%,#131925 100%);border:1px solid var(--border);border-radius:12px;padding:28px;">
+    <div class="cs-grid">
+
+      <!-- Core Build -->
+      <div class="cs-panel">
+        <h3>Core Build LS (6 обяз.)</h3>
+        <ul class="cs-skill-list">
+          <li>Shadow Strike — CC/Opener</li>
+          <li>Abyssal Cleave — CC+AoE</li>
+          <li>Cyclonic Fury — DPS Finisher</li>
+          <li>Rising Slash — Mobility+DPS</li>
+          <li>Inject Venom — Pre-buff</li>
+          <li>Unyielding Sentinel — Survival</li>
+        </ul>
+        <h3 style="margin-top:14px">Core Build Arena (7 обяз.)</h3>
+        <ul class="cs-skill-list">
+          <li>Shadow Strike — CC/Opener</li>
+          <li>Vicious Fury — Stealth Opener</li>
+          <li>Abyssal Cleave — Prone</li>
+          <li>Cyclonic Fury — DPS</li>
+          <li>Culling Arc — Double-hit CC</li>
+          <li>Rising Slash — Mobility</li>
+          <li>Inject Venom — Pre-buff</li>
+        </ul>
+      </div>
+
+      <!-- Rotations -->
+      <div class="cs-panel">
+        <h3>LS AoE Bomb Rotation</h3>
+        <div class="cs-rot" style="margin-bottom:10px">
+          <span class="cs-pill">Lightning Infusion</span><span class="cs-arr">+</span>
+          <span class="cs-pill">Thunder Spirit</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Camouflage Cloak</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Explosive Fury×n</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Javelin Inferno×5</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Smokescreen+Sentinel</span>
+        </div>
+        <h3>Arena CC Chain</h3>
+        <div class="cs-rot">
+          <span class="cs-pill">Sentinel</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Inject Venom</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Vicious Fury</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Shadow Strike</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Gale Rush</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Abyssal Cleave</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Cyclonic Fury</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Culling Arc×2</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Rising Slash</span><span class="cs-arr">→</span>
+          <span class="cs-pill">Brutal Incision</span>
+        </div>
+      </div>
+
+      <!-- Target Priority -->
+      <div class="cs-panel">
+        <h3>Приоритет целей LS</h3>
+        <ol class="cs-target-list">
+          <li>Хилеры / саппорты (Wand, Staff)</li>
+          <li>Рейндж DPS (Longbow, Crossbow)</li>
+          <li>CC специалисты (Staff/Dagger)</li>
+          <li>Melee DPS</li>
+          <li>Танки (S+S) — ПОСЛЕДНИЕ, убегай</li>
+        </ol>
+        <h3 style="margin-top:14px">Топ-5 Tips</h3>
+        <ul class="cs-tip-list">
+          <li>LI + Thunder Spirit ОДНОВРЕМЕННО перед Javelin</li>
+          <li>5 Embers обязательно до броска Javelin</li>
+          <li>Shadow Walker = постоянное движение</li>
+          <li>Cloak = ВХОД, не побег</li>
+          <li>Guardian — проактивно в начале боя</li>
+        </ul>
+        <h3 style="margin-top:14px">Топ-5 Ошибок</h3>
+        <ul class="cs-err-list">
+          <li>Javelin без 5 Embers</li>
+          <li>Javelin в одну цель</li>
+          <li>Баффы по отдельности</li>
+          <li>AoE ротация в Arena</li>
+          <li>Пропуск шага CC-цепочки</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 30: SOURCES -->
+<section id="sources">
+  <h2 class="section-title">Источники</h2>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">Maxroll — ShadowDancer PvP Build Guide</div>
+      <div class="source-url">https://maxroll.gg/throne-and-liberty/build-guides/spear-dagger-pvp-build-guide</div>
+      <div class="source-meta">2026</div>
+    </div>
+    <span class="source-rel rel-high">High</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">Maxroll — Large Scale PvP Tier List</div>
+      <div class="source-url">https://maxroll.gg/throne-and-liberty/tierlists/large-scale-pvp-tier-list</div>
+      <div class="source-meta">Март 2026</div>
+    </div>
+    <span class="source-rel rel-high">High</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">Maxroll — Small Scale PvP Tier List</div>
+      <div class="source-url">https://maxroll.gg/throne-and-liberty/tierlists/small-scale-pvp-tier-list</div>
+      <div class="source-meta">Март 2026</div>
+    </div>
+    <span class="source-rel rel-high">High</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">Metabattle — ShadowDancer Large Scale PvP Build</div>
+      <div class="source-url">https://metabattle.com/tl/Shadowdancer_-_Spear_+_Dagger_Large_Scale_PvP_Build</div>
+      <div class="source-meta">Сентябрь 2025</div>
+    </div>
+    <span class="source-rel rel-med">Medium</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">Metabattle — ShadowDancer Small Scale PvP Build</div>
+      <div class="source-url">https://metabattle.com/tl/Shadowdancer_-_Spear_+_Dagger_Small_Scale_PvP_Build</div>
+      <div class="source-meta">Сентябрь 2025</div>
+    </div>
+    <span class="source-rel rel-med">Medium</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">ArzyeLBuilds — Throne and Liberty Spear Dagger PvP Build</div>
+      <div class="source-url">https://arzyelbuilds.com/throne-and-liberty-spear-dagger-pvp-build-tl/</div>
+      <div class="source-meta">2025</div>
+    </div>
+    <span class="source-rel rel-med">Medium</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">StudioLoot — Spear Dagger PvP Build Guide</div>
+      <div class="source-url">https://www.studioloot.com/throne-and-liberty/articles/spear-dagger-pvp-build-guide/</div>
+      <div class="source-meta">2025</div>
+    </div>
+    <span class="source-rel rel-med">Medium</span>
+  </div>
+
+  <div class="source-item">
+    <div>
+      <div class="source-name">Game8 — Throne and Liberty</div>
+      <div class="source-url">https://game8.co/games/Throne-and-Liberty/archives/488191</div>
+      <div class="source-meta">2025</div>
+    </div>
+    <span class="source-rel rel-med">Medium</span>
+  </div>
+
+</section>
+
+</div>
+</main>
+
+<script>
+// Sidebar toggle
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+
+// Accordion
+function toggleAccordion(header){
+  header.classList.toggle('open');
+  const body=header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// IntersectionObserver for active sidebar links
+const sections=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.sidebar-link');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id=entry.target.getAttribute('id');
+      links.forEach(l=>l.classList.remove('active'));
+      const active=document.querySelector('.sidebar-link[href="#'+id+'"]');
+      if(active){
+        active.classList.add('active');
+        active.scrollIntoView({block:'nearest',behavior:'smooth'});
+      }
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px',threshold:0});
+sections.forEach(s=>observer.observe(s));
+
+// Close sidebar on link click (mobile)
+links.forEach(l=>{
+  l.addEventListener('click',()=>{
+    if(window.innerWidth<=768){
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
